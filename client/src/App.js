@@ -1,9 +1,11 @@
 import "./App.css";
+import ForgotPasswordModal from "./components/ForgotPasswordModal";
 
 function App() {
+
   return (
     <div className="App">
-      <h1>Hello World !</h1>
+        <ForgotPasswordModal />
     </div>
   );
 }
