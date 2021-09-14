@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+
 
 import {
   Logo,
@@ -6,14 +7,13 @@ import {
   CancelButton,
   LogoutContainer,
   LogoutText,
-} from "../LogoutModal/LogoutModal.style";
+} from '../LogoutModal/LogoutModal.style';
 
-import logo_img from "../../logo.svg";
 
 function LogoutModal() {
   return (
     <LogoutContainer>
-      <Logo src={logo_img} />
+      <Logo src={'/images/logo.svg'} alt="" />
       <LogoutText>Log out of Twitter?</LogoutText>
       <LogOutButton>Log out</LogOutButton>
       <CancelButton>Cancel</CancelButton>

@@ -5,7 +5,8 @@ export const InputContainer = styled.div`
   width: 550px;
   height: 60px;
   border-radius: 4px;
-  font-family: Roboto;
+  font-family: 'Roboto';
+
   box-sizing: border‹-box;
   margin-bottom: 30px;
   flex-direction: ${(props) => (props.focus || props.inputFull ? 'column' : 'low')};

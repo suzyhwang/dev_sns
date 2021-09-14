@@ -7,7 +7,8 @@ import {
   GoLogin,
 } from './SuccessFindForm.style';
 
-function SuccessFindForm({ userInfo }) {
+function SuccessFindForm({ openCloseModalHandler, userInfo }) {
+
   return (
     <FindPasswordContainer>
       <Logo>
@@ -15,7 +16,7 @@ function SuccessFindForm({ userInfo }) {
       </Logo>
       <InfoText>회원님의 비밀번호 입니다</InfoText>
       <ShowFindPassword>{userInfo[0].password}</ShowFindPassword>
-      <GoLogin>로그인 하기</GoLogin>
+      <GoLogin onClick={openCloseModalHandler}>로그인 하기</GoLogin>
     </FindPasswordContainer>
   );
 }

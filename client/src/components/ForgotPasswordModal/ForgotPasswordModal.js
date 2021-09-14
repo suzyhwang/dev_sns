@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import ForgotPasswordForm from '../ForgotPasswordForm/ForgotPasswordForm';
 import SuccessFindForm from '../SuccessFindForm/SuccessFindForm';
-import { dummy } from '../../dummy/dymmy';
-import { ModalContainer, ModalBackdrop, ModalView } from './ForgotPasswordModal.style';
+import { dummy } from '../../dummy/dummy';
+import { ModalView } from './ForgotPasswordModal.style';
 
-function ForgotPasswordModal({ openModalHandler }) {
-  // const [nickNameValue, setNickNameValue] = useState('');
-  // const [emailValue, setEmailValue] = useState('');
-  // const [isFail, setIsFail] = useState(false);
+function ForgotPasswordModal({ openCloseModalHandler }) {
+
   const [userInfo, setUserInfo] = useState(dummy);
   const [birthDay, setBirthDay] = useState('');
 
@@ -27,61 +25,12 @@ function ForgotPasswordModal({ openModalHandler }) {
     } else if (e.target.name === 'email') {
       newValues.email = e.target.value;
     }
-    // let [name, value] = e.target;
-    // setValues((prev) => ({
-    //   ...prev,
-    //   [name]: value,
-    // }));
-    if (window.event.keyCode === 13) {
-      findPwHandler();
-    }
     setValues(newValues);
   };
 
-  // const nickNameHandler = (e) => {
-  // setNickNameValue(e.target.value);
-  // setIsFail(false);
-  // if (window.event.keyCode === 13) {
-  //   findPwHandler();
-  // }
-  // if (window.event.keyCode === 13) {
-  //   findPwHandler();
-  // }
-  // if (nickNameValue.length && emailValue.length) {
-  //   setIsDisabled(false);
-  // } else {
-  //   setIsDisabled(true);
-  // }
-  // };
-
-  // const emailHandler = (e) => {
-  // setEmailValue(e.target.value);
-  // setIsFail(false);
-  // if (window.event.keyCode === 13) {
-  //   findPwHandler();
-  // }
-  // if (nickNameValue.length && emailValue.length) {
-  //   setIsDisabled(false);
-  // } else {
-  //   setIsDisabled(true);
-  // }
-  // };
-
   const getBirthDayHandler = (yy, mm, dd) => {
-    if (mm.length < 2 && dd.length < 2) {
-      setBirthDay(`${yy}0${mm}0${dd}`);
-    } else if (dd.length < 2) {
-      setBirthDay(`${yy}${mm}0${dd}`);
-    } else if (mm.length < 2) {
-      setBirthDay(`${yy}0${mm}${dd}`);
-    } else {
-      setBirthDay(`${yy}${mm}${dd}`);
-    }
-    // if (nickNameValue.length && emailValue.length) {
-    //   setIsDisabled(false);
-    // } else {
-    //   setIsDisabled(true);
-    // }
+    setBirthDay(`${yy}${mm}${dd}`);
+
   };
 
   const findPwHandler = () => {
@@ -114,25 +63,23 @@ function ForgotPasswordModal({ openModalHandler }) {
   };
 
   return (
-    <ModalContainer>
-      <ModalBackdrop onClick={openModalHandler}>
-        {values.isSuccess ? (
-          <ModalView findPassword={'350px'} onClick={(e) => e.stopPropagation()}>
-            <SuccessFindForm userInfo={userInfo} />
-          </ModalView>
-        ) : (
-          <ModalView onClick={(e) => e.stopPropagation()}>
-            <ForgotPasswordForm
-              values={values}
-              findPwHandler={findPwHandler}
-              inputHandler={inputHandler}
-              isDisabled={validate()}
-              getBirthDayHandler={getBirthDayHandler}
-            />
-          </ModalView>
-        )}
-      </ModalBackdrop>
-    </ModalContainer>
+    <>
+      {values.isSuccess ? (
+        <ModalView findPassword={'350px'} onClick={(e) => e.stopPropagation()}>
+          <SuccessFindForm openCloseModalHandler={openCloseModalHandler} userInfo={userInfo} />
+        </ModalView>
+      ) : (
+        <ModalView onClick={(e) => e.stopPropagation()}>
+          <ForgotPasswordForm
+            values={values}
+            findPwHandler={findPwHandler}
+            inputHandler={inputHandler}
+            isDisabled={validate()}
+            getBirthDayHandler={getBirthDayHandler}
+          />
+        </ModalView>
+      )}
+    </>
   );
 }
 

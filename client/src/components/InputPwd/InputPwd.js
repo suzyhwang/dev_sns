@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import {
-  Input_Container,
-  InputHolder,
-  Input_UserInfo,
-} from "../InputPwd/InputPwd.style";
+import React, { useState } from 'react';
+import { InputContainer, InputHolder, InputUserInfo } from '../InputPwd/InputPwd.style';
+
 
 function InputBlock({ inputPw, handleInputPw }) {
   const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <Input_Container focus={isFocus} inputPw={inputPw.length}>
+    <InputContainer focus={isFocus} inputPw={inputPw.length}>
       <InputHolder focus={isFocus} inputPw={inputPw.length}>
         비밀번호
       </InputHolder>
-      <Input_UserInfo
+      <InputUserInfo
+
         type="password"
         onFocus={() => {
           setIsFocus(!isFocus);
@@ -21,11 +19,11 @@ function InputBlock({ inputPw, handleInputPw }) {
         onBlur={() => {
           setIsFocus(!isFocus);
         }}
-        onChange={(e) => {
+        onKeyUp={(e) => {
           handleInputPw(e);
         }}
       />
-    </Input_Container>
+    </InputContainer>
   );
 }
 

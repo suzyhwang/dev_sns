@@ -1,13 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
-  font-family: "Roboto";
-`;
 
 export const ModalView = styled.div`
   margin-top: 100px;
@@ -157,7 +149,7 @@ export const SelectContainer = styled.div`
 export const MonthContainer = styled.div`
   width: 200px;
   height: 50px;
-  border: 1px solid #d1d9dd;
+  border: solid ${(props) => (props.value !== '' ? '1px #4aa1eb' : '1px #d1d9dd')};
   box-sizing: border-box;
   border-radius: 4px;
   padding: 5px;
@@ -182,7 +174,8 @@ export const MonthSelect = styled.select`
 export const DayContainer = styled.div`
   width: 130px;
   height: 50px;
-  border: 1px solid #d1d9dd;
+  border: solid ${(props) => (props.value !== '' ? '1px #4aa1eb' : '1px #d1d9dd')};
+
   box-sizing: border-box;
   border-radius: 4px;
   margin: 0 12px;
@@ -208,7 +201,7 @@ export const DaySelect = styled.select`
 export const YearContainer = styled.div`
   width: 145px;
   height: 50px;
-  border: 1px solid #d1d9dd;
+  border: solid ${(props) => (props.value !== '' ? '1px #4aa1eb' : '1px #d1d9dd')};
   box-sizing: border-box;
   border-radius: 4px;
   padding: 5px;

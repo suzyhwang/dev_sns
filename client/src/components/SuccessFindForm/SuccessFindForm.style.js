@@ -49,4 +49,5 @@ export const GoLogin = styled.button`
   background: #4aa1eb;
   box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.2);
   border-radius: 42px;
+  cursor : pointer:
 `;

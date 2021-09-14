@@ -1,101 +1,118 @@
 import React, { useState } from 'react';
-import { SelectContainer, SelectYear, SelectMonth, SelectDay } from './SelectBirth.style';
+import {
+  SelectContainer,
+  MonthContainer,
+  MonthSelect,
+  DayContainer,
+  DaySelect,
+  YearContainer,
+  YearSelect,
+} from './SelectBirth.style';
 
 function SelectBirth({ getBirthDayHandler }) {
-  const [selectMonth, setSelectMonth] = useState('0');
-  const [selectDay, setSelectDay] = useState('0');
-  const [selectYear, setSelectYear] = useState('0');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+  const [day, setDay] = useState('');
 
   const selectMonthHandler = (e) => {
-    setSelectMonth(e.target.value);
-    getBirthDayHandler(selectYear, e.target.value, selectDay);
+    if (e.target.value > 9) {
+      setMonth(e.target.value);
+    } else {
+      setMonth('0' + e.target.value);
+    }
+    getBirthDayHandler(year, e.target.value, day);
   };
 
   const selectDayHandler = (e) => {
-    setSelectDay(e.target.value);
-    getBirthDayHandler(selectYear, selectMonth, e.target.value);
+    if (e.target.value > 9) {
+      setDay(e.target.value);
+    } else {
+      setDay('0' + e.target.value);
+    }
+    getBirthDayHandler(year, month, e.target.value);
   };
 
   const selectYearHandler = (e) => {
-    setSelectYear(e.target.value);
-    getBirthDayHandler(e.target.value, selectMonth, selectDay);
+    setYear(e.target.value);
+    getBirthDayHandler(e.target.value, month, day);
   };
 
-  const BirthChoice = (string) => {
-    let arr = [<option value="none" key="0" hidden></option>];
-    let start = 1;
-    let end;
+  const monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const yearArr = [];
+  for (let i = 2021; i > 1900; i--) {
+    yearArr.push(i);
+  }
 
-    if (string === 'month') {
-      end = 12;
-      for (let i = start; i <= end; i++) {
-        arr.push(
-          <option key={i} value={i}>
-            {i + '월'}
-          </option>,
-        );
-      }
-    } else if (string === 'day') {
-      if (selectMonth === '2') {
-        end = 29;
-      } else if (
-        selectMonth === '4' ||
-        selectMonth === '6' ||
-        selectMonth === '9' ||
-        selectMonth === '11'
-      ) {
-        end = 30;
-      } else {
-        end = 31;
-      }
-
-      for (let i = start; i <= end; i++) {
-        arr.push(
-          <option key={i} value={i}>
-            {i}
-          </option>,
-        );
-      }
-    } else {
-      start = new Date().getFullYear();
-      end = 1910;
-      for (let i = start; i >= end; i--) {
-        arr.push(
-          <option key={i} value={i}>
-            {i}
-          </option>,
-        );
-      }
+  let dayArr = [];
+  if (month === '02') {
+    for (let i = 1; i <= 29; i++) {
+      dayArr.push(i);
     }
-    return arr;
-  };
+  } else if (month === '04' || month === '06' || month === '09' || month === '11') {
+    for (let i = 1; i <= 30; i++) {
+      dayArr.push(i);
+    }
+  } else {
+    for (let i = 1; i <= 31; i++) {
+      dayArr.push(i);
+    }
+  }
 
   return (
     <SelectContainer>
-      <SelectMonth
-        value={selectMonth}
-        onChange={(e) => {
-          selectMonthHandler(e);
-        }}
-      >
-        {BirthChoice('month')}
-      </SelectMonth>
-      <SelectDay
-        value={selectDay}
-        onChange={(e) => {
-          selectDayHandler(e);
-        }}
-      >
-        {BirthChoice('day')}
-      </SelectDay>
-      <SelectYear
-        value={selectYear}
-        onChange={(e) => {
-          selectYearHandler(e);
-        }}
-      >
-        {BirthChoice('year')}
-      </SelectYear>
+      <div>
+        <MonthContainer value={month}>
+          <div>월</div>
+          <MonthSelect
+            onChange={(e) => {
+              selectMonthHandler(e);
+            }}
+          >
+            <option value="none" hidden></option>;
+            {monthArr.map((el, idx) => {
+              return (
+                <option key={idx} value={el}>
+                  {el}
+                </option>
+              );
+            })}
+          </MonthSelect>
+        </MonthContainer>
+      </div>
+      <DayContainer value={day}>
+        <div>일</div>
+        <DaySelect
+          onChange={(e) => {
+            selectDayHandler(e);
+          }}
+        >
+          <option value="none" hidden></option>;
+          {dayArr.map((el, idx) => {
+            return (
+              <option key={idx} value={el}>
+                {el}
+              </option>
+            );
+          })}
+        </DaySelect>
+      </DayContainer>
+      <YearContainer value={year}>
+        <div>년</div>
+        <YearSelect
+          onChange={(e) => {
+            selectYearHandler(e);
+          }}
+        >
+          <option value="none" hidden></option>;
+          {yearArr.map((el, idx) => {
+            return (
+              <option key={idx} value={el}>
+                {el}
+              </option>
+            );
+          })}
+        </YearSelect>
+      </YearContainer>
     </SelectContainer>
   );
 }

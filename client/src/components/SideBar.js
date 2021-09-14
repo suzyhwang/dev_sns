@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import logo_img from "../logo.svg";
-import home_img from "../home.svg";
-import explore_img from "../explore.svg";
-import profile_img from "../profile.svg";
-import userphoto_img from "../userphoto.svg";
+import React from 'react';
+import styled from 'styled-components';
+import home_img from '../home.svg';
+import explore_img from '../explore.svg';
+import profile_img from '../profile.svg';
+import userphoto_img from '../userphoto.svg';
+
 
 const Logo = styled.img`
   margin-top: 39px;
@@ -172,22 +172,23 @@ const SideBarUserEmail = styled.span`
 function SideBar() {
   return (
     <SideBarContainer>
-      <Logo src={logo_img} />
+      <Logo src={'/images/logo.svg'} alt="" />
       <SideBarHome>
-        <SideBarHomeIcon src={home_img} />
+        <SideBarHomeIcon src={home_img} alt="" />
         <span>Home</span>
       </SideBarHome>
       <SideBarExplore>
-        <SideBarExploreIcon src={explore_img} />
+        <SideBarExploreIcon src={explore_img} alt="" />
         <span>Explore</span>
       </SideBarExplore>
       <SideBarProfile>
-        <SideBarProfileIcon src={profile_img} />
+        <SideBarProfileIcon src={profile_img} alt="" />
+
         <span>Profile</span>
       </SideBarProfile>
       <SideBarTweetButton>Post</SideBarTweetButton>
       <SideBarUserContainer>
-        <SideBarUserPhoto src={userphoto_img} />
+        <SideBarUserPhoto src={userphoto_img} alt="" />
         <SideBarUserId>Sample</SideBarUserId>
         <SideBarUserEmail>min85472@gmail.com</SideBarUserEmail>
       </SideBarUserContainer>

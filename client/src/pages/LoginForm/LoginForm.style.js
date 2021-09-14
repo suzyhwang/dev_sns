@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
 
 export const TwitterLoginText = styled.h3`
   width: 175px;
@@ -25,6 +26,11 @@ export const LogoContainer = styled.div`
   margin-top: 69px;
 `;
 
+export const PullContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const Container = styled.div`
   position: fixed;
   top: 50%;
@@ -44,7 +50,7 @@ export const Logo = styled.img`
   margin-top: 30px;
 `;
 
-export const LoginWarning = styled.p`
+export const LoginWarning = styled.div`
   width: 383px;
   height: 72px;
   left: 768px;
@@ -61,6 +67,7 @@ export const LoginWarning = styled.p`
   justify-content: center;
   align-items: center;
   margin-top: 0px;
+  margin-bottom: 16px;
   div {
     padding-top: 20px;
   }
@@ -84,7 +91,7 @@ export const LoginButton = styled.button`
   border: none;
 
   letter-spacing: -0.05em;
-
+  cursor: pointer;
   ${(props) =>
     props.disabled
       ? `
@@ -95,11 +102,13 @@ export const LoginButton = styled.button`
         `};
 `;
 
-export const Register = styled.span`
+export const Register = styled.a`
+
   width: 77px;
   height: 19px;
   left: 1010px;
   top: 510px;
+  margin-bottom: 2px;
 
   font-family: Roboto;
   font-style: normal;
@@ -109,23 +118,33 @@ export const Register = styled.span`
   /* identical to box height */
   margin-left: 20px;
   color: #4aa1eb;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-underline-position: under;
+  }
 `;
 
-export const ForgotPwd = styled.span`
+export const ForgotPwd = styled.a`
+  color: #4aa1eb;
   width: 161px;
   height: 19px;
   left: 833px;
   top: 510px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
-
   letter-spacing: 0.015em;
-  color: #4aa1eb;
+  &:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-underline-position: under;
+  }
+
 `;
 
 export const LoginButtonContainer = styled.div`
@@ -139,3 +158,27 @@ export const LoginButtonContainer = styled.div`
 export const BottomContainer = styled.div`
   text-align: center;
 `;
+
+export const ModalContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto';
+  z-index: 999;
+`;
+
+export const TestHomePage = styled.div`
+  width: 1000px;
+  height: 1000px;
+  background-color: white;
+  color: red;
+  text-weight: bold;
+  transition: 'all 0.3s';
+  font-size: 150px;
+`;
+
