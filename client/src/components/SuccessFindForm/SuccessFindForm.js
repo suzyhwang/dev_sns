@@ -8,6 +8,7 @@ import {
 } from './SuccessFindForm.style';
 
 function SuccessFindForm({ openCloseModalHandler, userInfo }) {
+
   return (
     <FindPasswordContainer>
       <Logo>

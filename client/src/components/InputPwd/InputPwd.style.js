@@ -9,6 +9,7 @@ export const InputContainer = styled.div`
   margin-bottom: 29px;
   flex-direction: ${(props) => (props.focus || props.inputPw ? 'column' : 'low')};
   border: ${(props) => (props.focus || props.inputPw ? '2px #1D9BF0' : '1px #D1D9DD')} solid;
+
 `;
 
 export const InputHolder = styled.div`

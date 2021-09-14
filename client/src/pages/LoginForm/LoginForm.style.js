@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const TwitterLoginText = styled.h3`
   width: 175px;
   height: 38px;
@@ -91,7 +92,6 @@ export const LoginButton = styled.button`
 
   letter-spacing: -0.05em;
   cursor: pointer;
-
   ${(props) =>
     props.disabled
       ? `
@@ -103,11 +103,13 @@ export const LoginButton = styled.button`
 `;
 
 export const Register = styled.a`
+
   width: 77px;
   height: 19px;
   left: 1010px;
   top: 510px;
   margin-bottom: 2px;
+
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -142,6 +144,7 @@ export const ForgotPwd = styled.a`
     text-decoration-line: underline;
     text-underline-position: under;
   }
+
 `;
 
 export const LoginButtonContainer = styled.div`
@@ -178,3 +181,4 @@ export const TestHomePage = styled.div`
   transition: 'all 0.3s';
   font-size: 150px;
 `;
+

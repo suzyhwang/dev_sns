@@ -1,6 +1,7 @@
 import { dummy } from '../../dummy/dummy';
 import { useState } from 'react';
 import {
+
   ModalView,
   LogoContainer,
   Title,
@@ -40,6 +41,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
   const [year, setYear] = useState('');
   const [day, setDay] = useState('');
 
+
   const monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const yearArr = [];
   for (let i = 2021; i > 1900; i--) {
@@ -52,6 +54,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
       dayArr.push(i);
     }
   } else if (month === '04' || month === '06' || month === '09' || month === '11') {
+
     for (let i = 1; i <= 30; i++) {
       dayArr.push(i);
     }
@@ -79,6 +82,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
 
   const isValidPassword = (password) => {
     let check = password.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
+
     return check ? true : false;
   };
 
@@ -94,6 +98,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
       month !== '' &&
       day !== '' &&
       year !== ''
+
       ? true
       : false;
   };

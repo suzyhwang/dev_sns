@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ForgotPasswordContainer = styled.div`
   padding: 10px 30px 20px 30px;
   font-family: 'Roboto';
+
 `;
 
 export const ForgotPwLogo = styled.div`
@@ -30,7 +31,6 @@ export const FindPasswordButton = styled.button`
   font-size : 1.2rem;
   font-weight : bold;
   cursor : pointer;
-}
 `;
 
 export const FailMessage = styled.div`

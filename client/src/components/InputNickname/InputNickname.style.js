@@ -6,6 +6,7 @@ export const InputContainer = styled.div`
   height: 60px;
   border-radius: 4px;
   font-family: 'Roboto';
+
   box-sizing: border‹-box;
   margin-bottom: 30px;
   flex-direction: ${(props) => (props.focus || props.inputFull ? 'column' : 'low')};

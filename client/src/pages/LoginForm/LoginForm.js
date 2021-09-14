@@ -73,6 +73,7 @@ function LoginForm() {
 
   const handleInputPw = (e) => {
     setInputPw(e.target.value);
+
     if (inputId.length > 0 && inputPw.length > 0) {
       setIsDisabled(false);
     } else {

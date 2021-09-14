@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { InputContainer, InputHolder, InputUserInfo } from '../InputPwd/InputPwd.style';
 
+
 function InputBlock({ inputPw, handleInputPw }) {
   const [isFocus, setIsFocus] = useState(false);
 
@@ -10,6 +11,7 @@ function InputBlock({ inputPw, handleInputPw }) {
         비밀번호
       </InputHolder>
       <InputUserInfo
+
         type="password"
         onFocus={() => {
           setIsFocus(!isFocus);

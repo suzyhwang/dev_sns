@@ -5,6 +5,7 @@ import { dummy } from '../../dummy/dummy';
 import { ModalView } from './ForgotPasswordModal.style';
 
 function ForgotPasswordModal({ openCloseModalHandler }) {
+
   const [userInfo, setUserInfo] = useState(dummy);
   const [birthDay, setBirthDay] = useState('');
 
@@ -29,6 +30,7 @@ function ForgotPasswordModal({ openCloseModalHandler }) {
 
   const getBirthDayHandler = (yy, mm, dd) => {
     setBirthDay(`${yy}${mm}${dd}`);
+
   };
 
   const findPwHandler = () => {

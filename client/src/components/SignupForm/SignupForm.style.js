@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const ModalView = styled.div`
   margin-top: 100px;
   display: flex;
@@ -174,6 +175,7 @@ export const DayContainer = styled.div`
   width: 130px;
   height: 50px;
   border: solid ${(props) => (props.value !== '' ? '1px #4aa1eb' : '1px #d1d9dd')};
+
   box-sizing: border-box;
   border-radius: 4px;
   margin: 0 12px;

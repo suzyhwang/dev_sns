@@ -5,6 +5,7 @@ import explore_img from '../explore.svg';
 import profile_img from '../profile.svg';
 import userphoto_img from '../userphoto.svg';
 
+
 const Logo = styled.img`
   margin-top: 39px;
   margin-bottom: 32.5px;
@@ -182,6 +183,7 @@ function SideBar() {
       </SideBarExplore>
       <SideBarProfile>
         <SideBarProfileIcon src={profile_img} alt="" />
+
         <span>Profile</span>
       </SideBarProfile>
       <SideBarTweetButton>Post</SideBarTweetButton>

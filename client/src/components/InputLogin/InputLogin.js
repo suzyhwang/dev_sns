@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { InputContainer, InputHolder, InputUserInfo } from '../InputLogin/InputLogin.style';
 
+
 function InputBlock({ inputId, handleInputId }) {
   const [isFocus, setIsFocus] = useState(false);
 
@@ -10,6 +11,7 @@ function InputBlock({ inputId, handleInputId }) {
         이메일
       </InputHolder>
       <InputUserInfo
+
         type="text"
         onFocus={() => {
           setIsFocus(!isFocus);

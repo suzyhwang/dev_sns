@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import {
   Logo,
   LogOutButton,
@@ -7,6 +8,7 @@ import {
   LogoutContainer,
   LogoutText,
 } from '../LogoutModal/LogoutModal.style';
+
 
 function LogoutModal() {
   return (

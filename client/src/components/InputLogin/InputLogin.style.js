@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const InputContainer = styled.div`
+
   display: flex;
   width: 383px;
   height: 66px;
@@ -9,6 +10,7 @@ export const InputContainer = styled.div`
   margin-bottom: 20px;
   flex-direction: ${(props) => (props.focus || props.inputId ? 'column' : 'low')};
   border: ${(props) => (props.focus || props.inputId ? '2px #1D9BF0' : '1px #D1D9DD')} solid;
+
 `;
 
 export const InputHolder = styled.div`
