@@ -1,9 +1,14 @@
-import "./App.css";
+import LoginForm from './pages/LoginForm/LoginForm';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World !</h1>
+      <LoginForm />
+      {/* <SignUp /> */}
+      {/* <ForgotPassworModal /> */}
+      {/* <LogoutModal /> */}
+      {/* <DeleteTweet /> */}
+      {/* <SideBar /> */}
     </div>
   );
 }
