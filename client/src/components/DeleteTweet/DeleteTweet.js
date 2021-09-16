@@ -10,7 +10,7 @@ function DeleteTweet() {
   return (
     <>
       <DeleteTweetContainer>
-        <DeleteTweetText>Delete Tweet?</DeleteTweetText>
+        <DeleteTweetText>Delete Post?</DeleteTweetText>
         <DeleteTweetButton>Delete</DeleteTweetButton>
         <DeleteCancelButton>Cancel</DeleteCancelButton>
       </DeleteTweetContainer>

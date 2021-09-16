@@ -1,7 +1,6 @@
-import { dummy } from '../../dummy/dummy';
-import { useState } from 'react';
+import { dummy } from "../../dummy/dummy";
+import { useState } from "react";
 import {
-
   ModalView,
   LogoContainer,
   Title,
@@ -20,27 +19,27 @@ import {
   Btn,
   ActivedBtn,
   CompletedModal,
-} from './SignupForm.style';
+} from "./SignupForm.style";
 
 const SignupForm = ({ openCloseModalHandler }) => {
   const [isCompleted, setIsCompleted] = useState(false);
 
-  const [nickname, setNickname] = useState('');
+  const [nickname, setNickname] = useState("");
   const [isClickedNickname, setIsClickedNickname] = useState(false);
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isClickedEmail, setIsClickedEmail] = useState(false);
 
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [isClickedPassword, setIsClickedPassword] = useState(false);
 
-  const [checkingPassword, setCheckingPassword] = useState('');
-  const [isClickedCheckingPassword, setIsClickedCheckingPassword] = useState(false);
+  const [checkingPassword, setCheckingPassword] = useState("");
+  const [isClickedCheckingPassword, setIsClickedCheckingPassword] =
+    useState(false);
 
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
-  const [day, setDay] = useState('');
-
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [day, setDay] = useState("");
 
   const monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const yearArr = [];
@@ -49,12 +48,16 @@ const SignupForm = ({ openCloseModalHandler }) => {
   }
 
   let dayArr = [];
-  if (month === '02') {
+  if (month === "02") {
     for (let i = 1; i <= 29; i++) {
       dayArr.push(i);
     }
-  } else if (month === '04' || month === '06' || month === '09' || month === '11') {
-
+  } else if (
+    month === "04" ||
+    month === "06" ||
+    month === "09" ||
+    month === "11"
+  ) {
     for (let i = 1; i <= 30; i++) {
       dayArr.push(i);
     }
@@ -67,21 +70,24 @@ const SignupForm = ({ openCloseModalHandler }) => {
   const isValidNickname = (nickname) => {
     let check = nickname.match(/\W/g);
 
-    return nickname.length >= 6 && (check === null || check.filter((el) => el !== '.').length === 0)
+    return nickname.length >= 6 &&
+      (check === null || check.filter((el) => el !== ".").length === 0)
       ? true
       : false;
   };
 
   const isValidEmail = (email) => {
     let check = email.match(
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i,
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
     );
 
-    return email.indexOf('.') !== -1 && check ? true : false;
+    return email.indexOf(".") !== -1 && check ? true : false;
   };
 
   const isValidPassword = (password) => {
-    let check = password.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
+    let check = password.match(
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+    );
 
     return check ? true : false;
   };
@@ -95,10 +101,9 @@ const SignupForm = ({ openCloseModalHandler }) => {
       isValidEmail(email) &&
       isValidPassword(password) &&
       isMatchedPassword(checkingPassword) &&
-      month !== '' &&
-      day !== '' &&
-      year !== ''
-
+      month !== "" &&
+      day !== "" &&
+      year !== ""
       ? true
       : false;
   };
@@ -119,6 +124,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
       password,
       birthDay: year + month + day,
     });
+
     setIsCompleted(true);
   };
 
@@ -127,7 +133,12 @@ const SignupForm = ({ openCloseModalHandler }) => {
       {!isCompleted ? (
         <ModalView onClick={(e) => e.stopPropagation()}>
           <LogoContainer>
-            <img src={'/images/logo.svg'} width="38px" height="31.22px" alt="" />
+            <img
+              src={"/images/logo.svg"}
+              width="38px"
+              height="31.22px"
+              alt=""
+            />
           </LogoContainer>
           <Title>계정을 생성하세요</Title>
           <InputContainer>
@@ -136,10 +147,11 @@ const SignupForm = ({ openCloseModalHandler }) => {
                 <div
                   className={`${
                     isClickedNickname
-                      ? isValidNickname(nickname) && isRegistered(nickname, 'nickName')
-                        ? 'Right_Input'
-                        : 'Wrong_Input'
-                      : 'Default_Input'
+                      ? isValidNickname(nickname) &&
+                        isRegistered(nickname, "nickName")
+                        ? "Right_Input"
+                        : "Wrong_Input"
+                      : "Default_Input"
                   }`}
                   onClick={() => {
                     setIsClickedNickname(true);
@@ -149,7 +161,11 @@ const SignupForm = ({ openCloseModalHandler }) => {
                     setIsClickedNickname(true);
                   }}
                 >
-                  <div className={`${isClickedNickname ? 'Input_Title' : 'Default_Title'}`}>
+                  <div
+                    className={`${
+                      isClickedNickname ? "Input_Title" : "Default_Title"
+                    }`}
+                  >
                     <div>닉네임</div>
                   </div>
                   {isClickedNickname ? (
@@ -166,16 +182,21 @@ const SignupForm = ({ openCloseModalHandler }) => {
                 </div>
               </InputBox>
               {isClickedNickname ? (
-                isRegistered(nickname, 'nickName') ? (
+                isRegistered(nickname, "nickName") ? (
                   isValidNickname(nickname) ? (
-                    <div className="Right_Input Valid_Comment">사용 가능한 닉네임입니다.</div>
+                    <div className="Right_Input Valid_Comment">
+                      사용 가능한 닉네임입니다.
+                    </div>
                   ) : (
                     <div className="Wrong_Input Invalid_Comment">
-                      닉네임은 영어, 숫자, -, . 만 사용 가능하며, 6글자 이상이어야 합니다.
+                      닉네임은 영어, 숫자, -, . 만 사용 가능하며, 6글자
+                      이상이어야 합니다.
                     </div>
                   )
                 ) : (
-                  <div className="Default_Input Invalid_Comment">이미 가입된 닉네임입니다.</div>
+                  <div className="Default_Input Invalid_Comment">
+                    이미 가입된 닉네임입니다.
+                  </div>
                 )
               ) : (
                 <Space />
@@ -186,10 +207,10 @@ const SignupForm = ({ openCloseModalHandler }) => {
                 <div
                   className={`${
                     isClickedEmail
-                      ? isValidEmail(email) && isRegistered(email, 'email')
-                        ? 'Right_Input'
-                        : 'Wrong_Input'
-                      : 'Default_Input'
+                      ? isValidEmail(email) && isRegistered(email, "email")
+                        ? "Right_Input"
+                        : "Wrong_Input"
+                      : "Default_Input"
                   }`}
                   onClick={() => {
                     setIsClickedEmail(true);
@@ -199,7 +220,11 @@ const SignupForm = ({ openCloseModalHandler }) => {
                     setIsClickedEmail(true);
                   }}
                 >
-                  <div className={`${isClickedEmail ? 'Input_Title' : 'Default_Title'}`}>
+                  <div
+                    className={`${
+                      isClickedEmail ? "Input_Title" : "Default_Title"
+                    }`}
+                  >
                     <div>이메일</div>
                   </div>
                   {isClickedEmail ? (
@@ -216,14 +241,20 @@ const SignupForm = ({ openCloseModalHandler }) => {
                 </div>
               </InputBox>
               {isClickedEmail ? (
-                isRegistered(email, 'email') ? (
+                isRegistered(email, "email") ? (
                   isValidEmail(email) ? (
-                    <div className="Right_Input Valid_Comment">사용 가능한 이메일입니다.</div>
+                    <div className="Right_Input Valid_Comment">
+                      사용 가능한 이메일입니다.
+                    </div>
                   ) : (
-                    <div className="Wrong_Input Invalid_Comment">올바른 이메일을 입력해주세요.</div>
+                    <div className="Wrong_Input Invalid_Comment">
+                      올바른 이메일을 입력해주세요.
+                    </div>
                   )
                 ) : (
-                  <div className="Wrong_Input Invalid_Comment">이미 가입된 이메일입니다.</div>
+                  <div className="Wrong_Input Invalid_Comment">
+                    이미 가입된 이메일입니다.
+                  </div>
                 )
               ) : (
                 <Space />
@@ -235,9 +266,9 @@ const SignupForm = ({ openCloseModalHandler }) => {
                   className={`${
                     isClickedPassword
                       ? isValidPassword(password)
-                        ? 'Right_Input'
-                        : 'Wrong_Input'
-                      : 'Default_Input'
+                        ? "Right_Input"
+                        : "Wrong_Input"
+                      : "Default_Input"
                   }`}
                   onClick={() => {
                     setIsClickedPassword(true);
@@ -247,7 +278,11 @@ const SignupForm = ({ openCloseModalHandler }) => {
                     setIsClickedPassword(true);
                   }}
                 >
-                  <div className={`${isClickedPassword ? 'Input_Title' : 'Default_Title'}`}>
+                  <div
+                    className={`${
+                      isClickedPassword ? "Input_Title" : "Default_Title"
+                    }`}
+                  >
                     <div>비밀번호</div>
                   </div>
                   {isClickedPassword ? (
@@ -265,10 +300,13 @@ const SignupForm = ({ openCloseModalHandler }) => {
               </InputBox>
               {isClickedPassword ? (
                 isValidPassword(password) ? (
-                  <div className="Right_Input Valid_Comment">사용 가능한 비밀번호입니다.</div>
+                  <div className="Right_Input Valid_Comment">
+                    사용 가능한 비밀번호입니다.
+                  </div>
                 ) : (
                   <div className="Wrong_Input Invalid_Comment">
-                    비밀번호는 영어 대소문자, 숫자, 특수문자를 포함한 8자 이상이어야 합니다.
+                    비밀번호는 영어 대소문자, 숫자, 특수문자를 포함한 8자
+                    이상이어야 합니다.
                   </div>
                 )
               ) : (
@@ -280,10 +318,11 @@ const SignupForm = ({ openCloseModalHandler }) => {
                 <div
                   className={`${
                     isClickedCheckingPassword
-                      ? isMatchedPassword(checkingPassword) && checkingPassword.length >= 6
-                        ? 'Right_Input'
-                        : 'Wrong_Input'
-                      : 'Default_Input'
+                      ? isMatchedPassword(checkingPassword) &&
+                        checkingPassword.length >= 6
+                        ? "Right_Input"
+                        : "Wrong_Input"
+                      : "Default_Input"
                   }`}
                   onClick={() => {
                     setIsClickedCheckingPassword(true);
@@ -293,7 +332,13 @@ const SignupForm = ({ openCloseModalHandler }) => {
                     setIsClickedCheckingPassword(true);
                   }}
                 >
-                  <div className={`${isClickedCheckingPassword ? 'Input_Title' : 'Default_Title'}`}>
+                  <div
+                    className={`${
+                      isClickedCheckingPassword
+                        ? "Input_Title"
+                        : "Default_Title"
+                    }`}
+                  >
                     <div>비밀번호 확인</div>
                   </div>
                   {isClickedCheckingPassword ? (
@@ -310,10 +355,15 @@ const SignupForm = ({ openCloseModalHandler }) => {
                 </div>
               </InputBox>
               {isClickedCheckingPassword ? (
-                isMatchedPassword(checkingPassword) && checkingPassword.length >= 6 ? (
-                  <div className="Right_Input Valid_Comment">비밀번호가 일치합니다.</div>
+                isMatchedPassword(checkingPassword) &&
+                checkingPassword.length >= 6 ? (
+                  <div className="Right_Input Valid_Comment">
+                    비밀번호가 일치합니다.
+                  </div>
                 ) : (
-                  <div className="Wrong_Input Invalid_Comment">비밀번호를 다시 확인해 주세요.</div>
+                  <div className="Wrong_Input Invalid_Comment">
+                    비밀번호를 다시 확인해 주세요.
+                  </div>
                 )
               ) : (
                 <Space />
@@ -323,8 +373,8 @@ const SignupForm = ({ openCloseModalHandler }) => {
           <BirthContainer>
             <BirthTitle>생년월일</BirthTitle>
             <div>
-              이 정보는 공개적으로 표시되지 않습니다. 비즈니스, 반려동물 등 계정 주제에 상관 없이
-              나의 연력을 입력하세요
+              이 정보는 공개적으로 표시되지 않습니다. 비즈니스, 반려동물 등 계정
+              주제에 상관 없이 나의 연력을 입력하세요
             </div>
             <SelectContainer>
               <div>
@@ -335,7 +385,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
                       if (e.target.value > 9) {
                         setMonth(e.target.value);
                       } else {
-                        setMonth('0' + e.target.value);
+                        setMonth("0" + e.target.value);
                       }
                     }}
                   >
@@ -357,7 +407,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
                     if (e.target.value > 9) {
                       setDay(e.target.value);
                     } else {
-                      setDay('0' + e.target.value);
+                      setDay("0" + e.target.value);
                     }
                   }}
                 >
@@ -405,10 +455,17 @@ const SignupForm = ({ openCloseModalHandler }) => {
       ) : (
         <CompletedModal onClick={(e) => e.stopPropagation()}>
           <LogoContainer>
-            <img src={'/images/logo.svg'} width="38px" height="31.22px" alt="" />
+            <img
+              src={"/images/logo.svg"}
+              width="38px"
+              height="31.22px"
+              alt=""
+            />
           </LogoContainer>
           <div className="Complete_Title">축하합니다</div>
-          <div className="Complete_Comment">{nickname}님의 회원가입이 완료되었습니다</div>
+          <div className="Complete_Comment">
+            {nickname}님의 회원가입이 완료되었습니다
+          </div>
           <ActivedBtn onClick={openCloseModalHandler}>로그인 하기</ActivedBtn>
         </CompletedModal>
       )}
