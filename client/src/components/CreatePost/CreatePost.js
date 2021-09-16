@@ -16,7 +16,6 @@ const CreatePost = () => {
     if (text.length > 255) {
       let newText = text.substring(0, 255);
       setText(newText);
-      console.log(text);
     }
   };
   return (

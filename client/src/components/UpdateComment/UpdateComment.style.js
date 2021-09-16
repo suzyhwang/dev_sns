@@ -33,11 +33,13 @@ export const TilteContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 5px;
+
   img {
     width: 50px;
   }
+
   div {
-    padding: 10px 190px;
+    padding: 10px 205px;
     font-size: 24px;
     font-weight: bold;
     line-height: 28px;
@@ -61,10 +63,12 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 10px 20px;
+
   img {
     width: 50px;
     height: 50px;
   }
+
   div {
     padding: 15px 10px;
     font-size: 18px;

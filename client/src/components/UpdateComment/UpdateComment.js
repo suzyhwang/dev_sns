@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { dummy, posts } from "../../dummy/dummy";
+import { dummy, comments } from "../../dummy/dummy";
 import {
   Container,
   ModalView,
@@ -9,15 +9,15 @@ import {
   ButtonContainer,
   ProfileContainer,
   TextContainer,
-} from "./UpdatePost.style";
+} from "./UpdateComment.style";
 
-const UpdatePost = () => {
-  const [post, setPost] = useState(posts[0].post);
+const UpdateComment = () => {
+  const [comment, setComment] = useState(comments[0].comment);
 
-  const countStr = (post) => {
-    if (post.length > 255) {
-      let newPost = post.substring(0, 255);
-      setPost(newPost);
+  const countStr = (comment) => {
+    if (comment.length > 255) {
+      let newComment = comment.substring(0, 255);
+      setComment(newComment);
     }
   };
 
@@ -33,7 +33,7 @@ const UpdatePost = () => {
                 height="31"
                 alt=""
               ></img>
-              <div>게시물 수정</div>
+              <div>댓글 수정</div>
             </TilteContainer>
           </TopContainer>
           <MiddleContainer>
@@ -48,21 +48,21 @@ const UpdatePost = () => {
             </ProfileContainer>
             <TextContainer>
               <textarea
-                value={post}
+                value={comment}
                 onChange={(e) => {
-                  setPost(e.target.value);
-                  countStr(post);
+                  setComment(e.target.value);
+                  countStr(comment);
                 }}
                 placeholder="What’s happening?"
               ></textarea>
             </TextContainer>
           </MiddleContainer>
           <ButtonContainer>
-            {post.length > 0 ? (
+            {comment.length > 0 ? (
               <button
                 onClick={() => {
-                  setPost(post);
-                  console.log(post);
+                  setComment(comment);
+                  console.log(comment);
                 }}
               >
                 Tweet
@@ -77,4 +77,4 @@ const UpdatePost = () => {
   );
 };
 
-export default UpdatePost;
+export default UpdateComment;
