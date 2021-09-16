@@ -82,11 +82,12 @@ export const ButtonContainer = styled.div`
     height: 39px;
     color: #fff;
     font-size: 17px;
-    font-weight: 570;
+    font-weight: 560;
     background: #4aa1eb;
     border-radius: 50px;
     outline: none;
     border: none;
+    cursor: pointer;
     letter-spacing: -0.03em;
     :active {
       background: #a4cdf4;
