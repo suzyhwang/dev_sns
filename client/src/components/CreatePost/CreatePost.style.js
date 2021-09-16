@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const ModalView = styled.div`
   margin-top: 100px;
   width: 600px;
-  height: 300px;
+  height: 330px;
   background: #ffffff;
   border: 1px solid #e1e1e1;
   box-sizing: border-box;
@@ -30,7 +30,7 @@ export const MiddleContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 15px;
-  height: 180px;
+  height: 210px;
   border-top: 1px solid #ecf1f2;
   border-bottom: 1px solid #ecf1f2;
 `;
@@ -46,12 +46,11 @@ export const TextContainer = styled.div`
     font-size: 20px;
     color: #54636f;
     width: 500px;
-    height: 130px;
+    height: 160px;
     margin: 10px 10px;
     border: none;
     outline: none;
     resize: none;
-
     ::placeholder {
       font-family: "Roboto";
       font-size: 20px;
@@ -61,8 +60,7 @@ export const TextContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  padding: 10px 0 10px 490px;
-
+  padding: 12px 0 10px 495px;
   div {
     box-sizing: border-box;
     padding: 9px 0;
@@ -76,7 +74,6 @@ export const ButtonContainer = styled.div`
     border-radius: 50px;
     letter-spacing: -0.03em;
   }
-
   button {
     box-sizing: border-box;
     padding: 9px 0;
@@ -85,13 +82,13 @@ export const ButtonContainer = styled.div`
     height: 39px;
     color: #fff;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 560;
     background: #4aa1eb;
     border-radius: 50px;
     outline: none;
     border: none;
+    cursor: pointer;
     letter-spacing: -0.03em;
-
     :active {
       background: #a4cdf4;
     }
