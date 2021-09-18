@@ -9,7 +9,7 @@ import {
   ButtonContainer,
 } from "../CreatePost/CreatePost.style";
 
-const CreatePost = () => {
+const CreatePost = ({ openCloseModalHandler }) => {
   const [text, setText] = useState("");
 
   const countStr = (text) => {
@@ -20,9 +20,9 @@ const CreatePost = () => {
   };
   return (
     <>
-      <Container>
+      <Container onClick={(e) => e.stopPropagation()}>
         <ModalView>
-          <TopContainer>
+          <TopContainer onClick={openCloseModalHandler}>
             <img src={"/images/cancelBtn.svg"}></img>
           </TopContainer>
           <MiddleContainer>
@@ -46,7 +46,7 @@ const CreatePost = () => {
             </TextContainer>
           </MiddleContainer>
           <ButtonContainer>
-            {text.length > 0 ? <button>Tweet</button> : <div>Tweet</div>}
+            {text.length > 0 ? <button>Post</button> : <div>Post</div>}
           </ButtonContainer>
         </ModalView>
       </Container>
