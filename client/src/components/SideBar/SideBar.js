@@ -16,6 +16,7 @@ import {
   ModalContainer,
 } from "./SideBar.style.js";
 import LogoutModal from "../LogoutModal/LogoutModal";
+import CreatePost from "../CreatePost/CreatePost";
 
 function SideBar() {
   const [isModal, setIsModal] = useState({
@@ -64,10 +65,20 @@ function SideBar() {
           <span>Profile</span>
         </SideBarProfile>
       </nav>
-      <SideBarTweetButton>Post</SideBarTweetButton>
+      <SideBarTweetButton
+        id="newTweet"
+        onClick={(e) => openCloseModalHandler(e)}
+      >
+        Post
+      </SideBarTweetButton>
       {isModal.logOut ? (
         <ModalContainer onClick={openCloseModalHandler}>
           <LogoutModal openCloseModalHandler={openCloseModalHandler} />
+        </ModalContainer>
+      ) : null}
+      {isModal.newTweet ? (
+        <ModalContainer onClick={openCloseModalHandler}>
+          <CreatePost openCloseModalHandler={openCloseModalHandler} />
         </ModalContainer>
       ) : null}
       <SideBarUserContainer

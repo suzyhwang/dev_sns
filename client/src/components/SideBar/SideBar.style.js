@@ -14,7 +14,6 @@ export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  position: fixed;
   width: 324px;
   height: 912px;
   left: 402px;
@@ -175,16 +174,16 @@ export const SideBarTweetButton = styled.button`
 
 export const SideBarUserContainer = styled.div`
   padding: 5px 5px 0px 20px;
-  position: absolute;
+  position: sticky;
   display: flex;
   flex-direction: row;
-  width: 287px;
-  height: 84px;
-  top: 900px;
-
+  width: 259px;
+  height: 54px;
+  top: 93vh;
   :hover {
     width: 259px;
     height: 54px;
+    padding: 5px 5px 0px 20px;
     transition-duration: 0.3s;
     transition-property: background-color, box-shadow;
     background: rgba(226, 226, 226, 0.75);

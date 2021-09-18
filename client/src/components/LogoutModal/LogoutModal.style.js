@@ -51,6 +51,7 @@ export const LogoutContainer = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   text-align: center;
+  z-index: 99;
 `;
 
 export const LogoutText = styled.p`

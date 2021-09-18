@@ -5,6 +5,14 @@ export const Container = styled.div`
   justify-content: center;
   box-sizing: border-box;
   font-family: "Roboto";
+  position: fixed;
+  top: 30%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 `;
 
 export const ModalView = styled.div`
@@ -23,6 +31,9 @@ export const TopContainer = styled.div`
   width: 600px;
   height: 55px;
   padding: 15px;
+  img {
+    cursor: pointer;
+  }
 `;
 
 export const MiddleContainer = styled.div`
