@@ -1,19 +1,13 @@
-
 import React, { useState } from "react";
-import LoginForm from "./pages/LoginForm/LoginForm";
-import LogoutModal from "./components/LogoutModal/LogoutModal";
-import DeleteTweet from "./components/DeleteTweet/DeleteTweet";
-import SideBar from "./components/SideBar";
-
+import Home from "./pages/Home/Home";
+import SideBar from "./components/SideBar/SideBar";
+import { Maincontainer } from "./App.style";
 function App() {
-
   return (
-    <div className="App">
-      <LoginForm />
-      {/* <LogoutModal /> */}
-      {/* <DeleteTweet /> */}
-      {/* <SideBar /> */}
-    </div>
+    <Maincontainer>
+      <SideBar />
+      <Home />
+    </Maincontainer>
   );
 }
 

@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const Logo = styled.img`
   width: 51px;
@@ -14,7 +13,7 @@ export const LogOutButton = styled.button`
   height: 42px;
   left: 833px;
   top: 593px;
-
+  cursor: pointer;
   background: #111418;
   box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.2);
   border-radius: 42px;
@@ -31,6 +30,7 @@ export const CancelButton = styled.button`
   background: #ffffff;
   border: 1px solid #d8e0e3;
   border-radius: 42px;
+  cursor: pointer;
 `;
 
 export const LogoutContainer = styled.div`
@@ -51,6 +51,7 @@ export const LogoutContainer = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   text-align: center;
+  z-index: 99;
 `;
 
 export const LogoutText = styled.p`

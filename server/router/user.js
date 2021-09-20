@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
-
+const { accessToken } = require("../middleware/accessToken");
 const { usersController } = require("../controller");
 
-// 유저정보요청
-//rotuer.get("/:userid",)
+// 유저정보요청 GET /users/userinfo
+router.get("/userinfo", accessToken, usersController.userinfo.get);
 
 // 회원가입 POST /users/signup
 router.post("/signup", usersController.signup.post);
@@ -16,6 +16,7 @@ router.post("/login", usersController.login.post);
 
 // 회원탈퇴 DELETE /users/delete
 router.delete("/delete", usersController.delete.delete);
+
 // 유저정보수정
 
 // 비밀번호변경

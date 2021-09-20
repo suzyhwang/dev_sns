@@ -17,13 +17,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      year: {
-        type: Sequelize.STRING,
-      },
-      month: {
-        type: Sequelize.STRING,
-      },
-      day: {
+      birthDay: {
         type: Sequelize.STRING,
       },
       createdAt: {
