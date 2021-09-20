@@ -16,15 +16,15 @@ import {
   LikesBtn,
 } from './Post.style';
 
-function Post() {
+function Post({ post }) {
   const [isUserLike, setIsUserLike] = useState(false);
   const [isInUserComment, setInUserComment] = useState(false);
   const [isShowComment, setIsShowComment] = useState(false);
-  const commentInPost = comments.filter((comment) => comment.postId === posts[0].id);
+  const commentInPost = comments.filter((comment) => comment.postId === post.id);
 
   useEffect(() => {
     const userComments = comments.filter((comment) => comment.nickname === loginUser[0].nickname);
-    userComments.filter((userComment) => userComment.postId === posts[0].id).length
+    userComments.filter((userComment) => userComment.postId === post.id).length
       ? setInUserComment(true)
       : setInUserComment(false);
   }, []);
@@ -36,7 +36,7 @@ function Post() {
     } else {
       likes.push({
         id: likes.length,
-        postId: posts[0].id,
+        postId: post.id,
         userId: loginUser[0].id,
       });
     }
@@ -51,17 +51,17 @@ function Post() {
         <PostBody>
           <PostBodyTop>
             <PostUserNameDateContainer>
-              <PostUserName>{posts[0].nickname}</PostUserName>
-              <PostDate>{posts[0].created_at.slice(0, 10)}</PostDate>
+              <PostUserName>{post.nickname}</PostUserName>
+              <PostDate>{post.created_at.slice(0, 10)}</PostDate>
             </PostUserNameDateContainer>
-            {posts[0].nickname === loginUser[0].nickname ? (
+            {post.nickname === loginUser[0].nickname ? (
               <EditDelBtnContainer>
                 <img src={'/images/editBtn.svg'} alt="" />
                 <img src={'/images/deleteBtn.svg'} alt="" />
               </EditDelBtnContainer>
             ) : null}
           </PostBodyTop>
-          <PostContent>{posts[1].post}</PostContent>
+          <PostContent>{post.post}</PostContent>
           <PostBodyBottom>
             <CommentsBtn
               onClick={() => {
@@ -81,7 +81,7 @@ function Post() {
                 fill={isInUserComment ? '#4AA1EB' : '#D1D9DD'}
               />
             </CommentsBtn>
-            <div>{comments.filter((comment) => comment.postId === posts[0].id).length}</div>
+            <div>{comments.filter((comment) => comment.postId === post.id).length}</div>
             <LikesBtn onClick={() => likeHandler()}>
               <path
                 d="M14.0066 1.80762C12.3038 1.80762 10.827 2.75331 10.1002 4.13476C9.37343 2.75331 7.8966 1.80762 6.19383 1.80762C3.77128 1.80762 1.80762 3.72218 1.80762 6.08408C1.80762 10.7476 10.1002 16.0347 10.1002 16.0347C10.1002 16.0347 18.3928 10.7476 18.3928 6.08408C18.3928 3.72218 16.4291 1.80762 14.0066 1.80762Z"
@@ -92,7 +92,7 @@ function Post() {
                 fill={isUserLike ? '#FF0000' : '#D1D9DD'}
               />
             </LikesBtn>
-            <div>{likes.filter((like) => like.postId === posts[0].id).length}</div>
+            <div>{likes.filter((like) => like.postId === post.id).length}</div>
           </PostBodyBottom>
         </PostBody>
       </PostContainer>
