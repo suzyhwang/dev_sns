@@ -1,39 +1,44 @@
 import React, { useState } from 'react';
-
+import { loginUser } from '../../dummy/dummy';
 import {
-  PostContainer,
-  PostUserImg,
-  PostBody,
-  PostBodyTop,
-  PostUserNameDateContainer,
-  PostUserName,
-  PostDate,
+  CommentContainer,
+  CommentArrow,
+  CommentUserImg,
+  CommentBody,
+  CommentBodyTop,
+  CommentUserNameDateContainer,
+  CommentUserName,
+  CommentDate,
   EditDelBtnContainer,
-  PostContent,
+  CommentContent,
 } from './Comment.style';
 
-function Comment({ comment, loginUser }) {
+function Comment({ comment }) {
+  console.log(comment);
   return (
-    <PostContainer>
-      <PostUserImg>
-        <img src={'/images/profile.svg'} alt=""></img>
-      </PostUserImg>
-      <PostBody>
-        <PostBodyTop>
-          <PostUserNameDateContainer>
-            <PostUserName>{comment.nickname}</PostUserName>
-            <PostDate>{comment.created_at.slice(0, 10)}</PostDate>
-          </PostUserNameDateContainer>
+    <CommentContainer>
+      <CommentArrow>
+        <img src={'/images/commentArrow.svg'} alt="" />
+      </CommentArrow>
+      <CommentUserImg>
+        <img src={'/images/profile.svg'} alt="" />
+      </CommentUserImg>
+      <CommentBody>
+        <CommentBodyTop>
+          <CommentUserNameDateContainer>
+            <CommentUserName>{comment.nickname}</CommentUserName>
+            <CommentDate>{comment.created_at.slice(0, 10)}</CommentDate>
+          </CommentUserNameDateContainer>
           {comment.nickname === loginUser[0].nickname ? (
             <EditDelBtnContainer>
               <img src={'/images/editBtn.svg'} alt="" />
               <img src={'/images/deleteBtn.svg'} alt="" />
             </EditDelBtnContainer>
           ) : null}
-        </PostBodyTop>
-        <PostContent>{comment.comment}</PostContent>
-      </PostBody>
-    </PostContainer>
+        </CommentBodyTop>
+        <CommentContent>{comment.comment}</CommentContent>
+      </CommentBody>
+    </CommentContainer>
   );
 }
 

@@ -68,6 +68,45 @@ function Profile() {
       <div>
         {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
       </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
+      <div>
+        {isPostsTap ? showPosts.map((post) => <Post post={post} key={post.id}></Post>) : null}
+      </div>
     </ProfileContainer>
   );
 }

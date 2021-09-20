@@ -19,8 +19,6 @@ import {
 function Post({ post }) {
   const [isUserLike, setIsUserLike] = useState(false);
   const [isInUserComment, setInUserComment] = useState(false);
-  const [isShowComment, setIsShowComment] = useState(false);
-  const commentInPost = comments.filter((comment) => comment.postId === post.id);
 
   useEffect(() => {
     const userComments = comments.filter((comment) => comment.nickname === loginUser[0].nickname);
@@ -63,11 +61,7 @@ function Post({ post }) {
           </PostBodyTop>
           <PostContent>{post.post}</PostContent>
           <PostBodyBottom>
-            <CommentsBtn
-              onClick={() => {
-                setIsShowComment(!isShowComment);
-              }}
-            >
+            <CommentsBtn>
               <path
                 d="M11.3105 8.04492C10.8143 8.04492 10.4297 8.42949 10.4297 8.9043C10.4297 9.3791 10.8143 9.76367 11.3105 9.76367C11.7639 9.76367 12.1484 9.3791 12.1484 8.9043C12.1484 8.42949 11.7639 8.04492 11.3105 8.04492ZM5.29492 8.04492C4.79863 8.04492 4.41406 8.42949 4.41406 8.9043C4.41406 9.3791 4.79863 9.76367 5.29492 9.76367C5.74824 9.76367 6.13281 9.3791 6.13281 8.9043C6.13281 8.42949 5.74824 8.04492 5.29492 8.04492Z"
                 fill={isInUserComment ? '#4AA1EB' : '#D1D9DD'}
@@ -96,11 +90,6 @@ function Post({ post }) {
           </PostBodyBottom>
         </PostBody>
       </PostContainer>
-      {isShowComment
-        ? commentInPost.map((postComment) => (
-            <Comment comment={postComment} loginUser={loginUser}></Comment>
-          ))
-        : null}
     </>
   );
 }

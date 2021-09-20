@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   position: fixed;
   top: 30%;
   left: 55%;
@@ -53,7 +53,7 @@ export const ImgContainer = styled.div`
 
 export const TextContainer = styled.div`
   textarea {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-size: 20px;
     color: #54636f;
     width: 500px;
@@ -63,7 +63,7 @@ export const TextContainer = styled.div`
     outline: none;
     resize: none;
     ::placeholder {
-      font-family: "Roboto";
+      font-family: 'Roboto';
       font-size: 20px;
       color: #54636f;
     }
@@ -77,13 +77,16 @@ export const ButtonContainer = styled.div`
     padding: 9px 0;
     text-align: center;
     color: #fff;
-    font-size: 17px;
-    font-weight: 560;
     width: 76px;
     height: 39px;
     background: #a4cdf4;
     border-radius: 50px;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 23px;
     letter-spacing: -0.03em;
+    font-family: 'Roboto';
   }
   button {
     box-sizing: border-box;
@@ -93,15 +96,18 @@ export const ButtonContainer = styled.div`
     height: 39px;
     color: #fff;
     font-size: 17px;
-    font-weight: 560;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 23px;
     background: #4aa1eb;
     border-radius: 50px;
     outline: none;
     border: none;
     cursor: pointer;
     letter-spacing: -0.03em;
+    font-family: 'Roboto';
     :active {
-      background: #a4cdf4;
+      background: #4aa1eb;
     }
   }
 `;

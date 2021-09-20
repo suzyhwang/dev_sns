@@ -86,7 +86,6 @@ export const FollowerLink = styled.a`
 
 export const ProfilePhoto = styled.img`
   position: relative;
-  z-index: 1;
   bottom: 41px;
   width: 82px;
   margin-left: 31px;
