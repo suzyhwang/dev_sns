@@ -3,3 +3,5 @@ node_modules
 localhost*
 package-lock.json
 config.json
+cert.pem
+key.pem

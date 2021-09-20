@@ -2,6 +2,7 @@ const { users } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
+    console.log("token===============", req.headers);
     const { nickname, email } = req.body;
     //닉네임 중복 확인
     const nicknamefound = await users.findOne({ where: { nickname: nickname } });
