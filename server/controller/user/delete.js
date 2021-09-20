@@ -2,7 +2,9 @@ const { users } = require("../../models");
 
 module.exports = {
   delete: async (req, res) => {
-    req.destroy();
-    res.sendStatus(200);
+    const id = req.userId;
+    await users.destroy({ where: { id: id } });
+
+    res.status(200).json({ message: "회원탈퇴가 완료 되었습니다." });
   },
 };

@@ -26,7 +26,7 @@ module.exports = {
       updatedAt: login.updatedAt,
     };
 
-    const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, { expiresIn: "3s" });
+    const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, { expiresIn: "1d" });
     const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET, { expiresIn: "2d" });
 
     // refreshtoken은 쿠키에
