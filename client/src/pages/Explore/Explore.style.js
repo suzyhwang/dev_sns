@@ -8,6 +8,7 @@ export const ExploreContainer = styled.div`
   border-left: 1px solid #f0f3f4;
   background: #ffffff;
   z-index: 1;
+  margin-left: 324px;
 `;
 
 export const TopContainer = styled.div`

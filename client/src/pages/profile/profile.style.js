@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProfileContainer = styled.div`
   display: flex;
@@ -6,7 +6,8 @@ export const ProfileContainer = styled.div`
   box-sizing: border-size;
   width: 792px;
   height: 100%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
+  margin-left: 324px;
 `;
 
 export const ProfileInfoArea = styled.div`
@@ -110,7 +111,7 @@ export const PostsTab = styled.div`
     margin-top: 10px;
     width: 92px;
     height: 8px;
-    background: ${(props) => (props.pickPostsTap ? '#4aa1eb' : 'none')};
+    background: ${(props) => (props.pickPostsTap ? "#4aa1eb" : "none")};
     border-radius: 50px;
     transition: all 0.3s;
   }
@@ -132,7 +133,7 @@ export const LikesTab = styled.div`
     margin-top: 10px;
     width: 92px;
     height: 8px;
-    background: ${(props) => (props.pickPostsTap ? '#none' : '#4aa1eb')};
+    background: ${(props) => (props.pickPostsTap ? "#none" : "#4aa1eb")};
     border-radius: 50px;
     transition: all 0.3s;
   }
