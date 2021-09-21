@@ -169,6 +169,8 @@ export const SideBarUserContainer = styled.div`
   padding: 5px 5px 0px 20px;
   display: flex;
   height: 54px;
+  margin-bottom: 20px;
+
   :hover {
     width: 259px;
     height: 54px;

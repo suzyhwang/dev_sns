@@ -19,10 +19,12 @@ import {
 } from '../LoginForm/LoginForm.style';
 import ForgotPasswordModal from '../../components/ForgotPasswordModal/ForgotPasswordModal';
 import SignupForm from '../../components/SignupForm/SignupForm';
+import axios from 'axios';
 
 function LoginForm() {
   const [Isdisabled, setIsDisabled] = useState(true);
   const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
   const [isValid, setIsValid] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState(dummy);
@@ -68,8 +70,6 @@ function LoginForm() {
     }
     setIsValid(false);
   };
-
-  const [inputPw, setInputPw] = useState('');
 
   const handleInputPw = (e) => {
     setInputPw(e.target.value);
@@ -123,7 +123,7 @@ function LoginForm() {
               <InputLogin inputId={inputId} handleInputId={handleInputId} />
               <InputPwd inputPw={inputPw} handleInputPw={handleInputPw} />
               <LoginButtonContainer>
-                <LoginButton disabled={Isdisabled} onClick={handleLogin}>
+                <LoginButton disabled={Isdisabled} onClick={(e) => handleLoginButton(e)}>
                   로그인
                 </LoginButton>
               </LoginButtonContainer>
