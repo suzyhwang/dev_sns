@@ -1,5 +1,7 @@
 import { dummy } from "../../dummy/dummy";
 import { useState } from "react";
+import axios from "axios";
+
 import {
   ModalView,
   LogoContainer,
@@ -40,6 +42,35 @@ const SignupForm = ({ openCloseModalHandler }) => {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [day, setDay] = useState("");
+
+  axios({
+    method: "post",
+    url: "http://localhost:4000/user/signup",
+    data: {
+      nickname: nickname,
+      email: email,
+      password: password,
+      birthDay: year + month + day,
+    },
+  })
+    .then((res) => {
+      if (res.message) {
+        console.log(res.message);
+        isRegistered(true);
+      }
+      if (res.data.email === email) {
+        isRegistered(false);
+      }
+    })
+    .catch((err) => {});
+
+  const isRegistered = (value, key) => {
+    return dummy.filter((el) => {
+      return el[key] === value;
+    }).length === 0
+      ? true
+      : false;
+  };
 
   const monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const yearArr = [];
@@ -104,14 +135,6 @@ const SignupForm = ({ openCloseModalHandler }) => {
       month !== "" &&
       day !== "" &&
       year !== ""
-      ? true
-      : false;
-  };
-
-  const isRegistered = (value, key) => {
-    return dummy.filter((el) => {
-      return el[key] === value;
-    }).length === 0
       ? true
       : false;
   };
@@ -252,7 +275,7 @@ const SignupForm = ({ openCloseModalHandler }) => {
                     </div>
                   )
                 ) : (
-                  <div className="Wrong_Input Invalid_Comment">
+                  <div className="Default_Input Invalid_Comment">
                     이미 가입된 이메일입니다.
                   </div>
                 )
