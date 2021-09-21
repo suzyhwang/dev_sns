@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HomeContainer = styled.div`
   box-sizing: border-box;
@@ -8,6 +8,7 @@ export const HomeContainer = styled.div`
   border-left: 1px solid #f0f3f4;
   background: #ffffff;
   z-index: 1;
+  margin-left: 324px;
 `;
 
 export const TopContainer = styled.div`
@@ -42,7 +43,7 @@ export const UserPhoto = styled.img`
 
 export const HomePostContainer = styled.div`
   textarea {
-    font-family: 'Roboto';
+    font-family: "Roboto";
     max-height: 720px;
     color: #54636f;
     width: 660px;
@@ -56,7 +57,7 @@ export const HomePostContainer = styled.div`
     line-height: 26px;
     letter-spacing: -0.015em;
     ::placeholder {
-      font-family: 'Roboto';
+      font-family: "Roboto";
       font-size: 20px;
       color: #54636f;
     }

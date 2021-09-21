@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ThreadContainer = styled.div`
   box-sizing: border-box;
@@ -9,6 +9,7 @@ export const ThreadContainer = styled.div`
   border-left: 1px solid #f0f3f4;
   background: #ffffff;
   z-index: 1;
+  margin-left: 324px;
 `;
 
 export const TopContainer = styled.div`

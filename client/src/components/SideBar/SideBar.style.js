@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FixedContainer = styled.div`
   position: fixed;
-  width: 1440px;
+  width: 1116px;
 `;
 
 export const SideBarContainer = styled.div`
@@ -227,6 +227,6 @@ export const ModalContainer = styled.div`
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
-  font-family: 'Roboto';
+  font-family: "Roboto";
   z-index: 999;
 `;

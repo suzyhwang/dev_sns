@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FollowPageContainer = styled.div`
   display: flex;
@@ -9,6 +9,7 @@ export const FollowPageContainer = styled.div`
   border-top: 1px solid #f0f3f4;
   border-left: 1px solid #f0f3f4;
   border-right: 1px solid #f0f3f4;
+  margin-left: 324px;
 `;
 
 export const FollowPageTop = styled.div`
@@ -26,7 +27,7 @@ export const FollowPageTapContainer = styled.div`
   font-size: 1.1rem;
   color: #6f767c;
   font-weight: 500;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   border-bottom: 1px solid #f0f3f4;
 `;
 
@@ -41,7 +42,7 @@ export const FollowersTab = styled.div`
     margin-top: 14px;
     width: 92px;
     height: 5px;
-    background: ${(props) => (props.pickFollowersTap ? '#4aa1eb' : 'none')};
+    background: ${(props) => (props.pickFollowersTap ? "#4aa1eb" : "none")};
     border-radius: 50px;
     transition: all 0.3s;
   }
@@ -69,7 +70,7 @@ export const FollowingTab = styled.div`
     margin-top: 14px;
     width: 92px;
     height: 5px;
-    background: ${(props) => (props.pickFollowersTap ? 'none' : '#4aa1eb')};
+    background: ${(props) => (props.pickFollowersTap ? "none" : "#4aa1eb")};
     border-radius: 50px;
     transition: all 0.3s;
   }
