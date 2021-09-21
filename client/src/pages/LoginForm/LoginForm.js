@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import InputLogin from "../../components/InputLogin/InputLogin";
-import InputPwd from "../../components/InputPwd/InputPwd";
-import { dummy } from "../../dummy/dummy";
+import React, { useEffect, useState } from 'react';
+import InputLogin from '../../components/InputLogin/InputLogin';
+import InputPwd from '../../components/InputPwd/InputPwd';
+import { dummy } from '../../dummy/dummy';
 import {
   ModalContainer,
   TwitterLoginText,
@@ -16,13 +16,15 @@ import {
   BottomContainer,
   PullContainer,
   TestHomePage,
-} from "../LoginForm/LoginForm.style";
-import ForgotPasswordModal from "../../components/ForgotPasswordModal/ForgotPasswordModal";
-import SignupForm from "../../components/SignupForm/SignupForm";
+} from '../LoginForm/LoginForm.style';
+import ForgotPasswordModal from '../../components/ForgotPasswordModal/ForgotPasswordModal';
+import SignupForm from '../../components/SignupForm/SignupForm';
+import axios from 'axios';
 
 function LoginForm() {
   const [Isdisabled, setIsDisabled] = useState(true);
-  const [inputId, setInputId] = useState("");
+  const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
   const [isValid, setIsValid] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState(dummy);
@@ -35,9 +37,9 @@ function LoginForm() {
   const openCloseModalHandler = (e) => {
     let newIsModal = { ...isModal };
 
-    if (e.target.name === "forgotPassword") {
+    if (e.target.name === 'forgotPassword') {
       newIsModal.forgotPassword = !newIsModal.forgotPassword;
-    } else if (e.target.name === "signUp") {
+    } else if (e.target.name === 'signUp') {
       newIsModal.signUp = !newIsModal.signUp;
     } else {
       if (isModal.forgotPassword) {
@@ -52,8 +54,8 @@ function LoginForm() {
   const { forgotPassword, signUp } = isModal;
 
   useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = forgotPassword || signUp ? "hidden" : "auto";
+    const body = document.querySelector('body');
+    body.style.overflow = forgotPassword || signUp ? 'hidden' : 'auto';
   }, [forgotPassword, signUp]);
 
   const handleInputId = (e) => {
@@ -69,8 +71,6 @@ function LoginForm() {
     setIsValid(false);
   };
 
-  const [inputPw, setInputPw] = useState("");
-
   const handleInputPw = (e) => {
     setInputPw(e.target.value);
 
@@ -84,9 +84,7 @@ function LoginForm() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const dummyFilter = dummy.filter(
-      (data) => data.email === inputId && data.password === inputPw
-    );
+    const dummyFilter = dummy.filter((data) => data.email === inputId && data.password === inputPw);
 
     if (!dummyFilter.length) {
       setIsValid(true);
@@ -106,12 +104,12 @@ function LoginForm() {
         ) : (
           <Container>
             <LogoContainer>
-              <Logo src={"/images/logo.svg"} />
+              <Logo src={'/images/logo.svg'} />
             </LogoContainer>
 
             <TwitterLoginText>pippy 로그인</TwitterLoginText>
             {!isValid ? (
-              ""
+              ''
             ) : (
               <LoginWarning>
                 <div>
@@ -125,14 +123,14 @@ function LoginForm() {
               <InputLogin inputId={inputId} handleInputId={handleInputId} />
               <InputPwd inputPw={inputPw} handleInputPw={handleInputPw} />
               <LoginButtonContainer>
-                <LoginButton disabled={Isdisabled} onClick={handleLogin}>
+                <LoginButton disabled={Isdisabled} onClick={(e) => handleLoginButton(e)}>
                   로그인
                 </LoginButton>
               </LoginButtonContainer>
             </form>
             <BottomContainer>
               <ForgotPwd
-                name={"forgotPassword"}
+                name={'forgotPassword'}
                 onClick={(e) => {
                   openCloseModalHandler(e);
                 }}
@@ -140,7 +138,7 @@ function LoginForm() {
                 비밀번호를 잊으셨나요?
               </ForgotPwd>
               <Register
-                name={"signUp"}
+                name={'signUp'}
                 onClick={(e) => {
                   openCloseModalHandler(e);
                 }}
@@ -159,9 +157,7 @@ function LoginForm() {
         ) : null}
         {isModal.signUp ? (
           <ModalContainer onClick={openCloseModalHandler}>
-            <SignupForm
-              openCloseModalHandler={openCloseModalHandler}
-            ></SignupForm>
+            <SignupForm openCloseModalHandler={openCloseModalHandler}></SignupForm>
           </ModalContainer>
         ) : null}
       </PullContainer>
