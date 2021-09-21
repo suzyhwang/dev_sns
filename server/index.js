@@ -20,10 +20,12 @@ app.use(
 //라우터 경로
 const { refreshToken } = require("./middleware/refreshToken");
 const userrouter = require("./router/user");
+const postrouter = require("./router/post");
 
 //특정 API를 받았을 때
 app.use("/refreshtoken", refreshToken);
 app.use("/user", userrouter);
+app.use("/post", postrouter);
 
 //https, 서버실행
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;

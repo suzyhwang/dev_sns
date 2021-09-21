@@ -13,12 +13,15 @@ router.post("/signup", usersController.signup.post);
 router.post("/login", usersController.login.post);
 
 // 로그아웃
+router.post("/logout", usersController.logout.post);
 
 // 회원탈퇴 DELETE /users/delete
-router.delete("/delete", usersController.delete.delete);
+router.delete("/delete", accessToken, usersController.delete.delete);
 
 // 유저정보수정
+router.put("/edit", accessToken, usersController.edit.put);
 
 // 비밀번호변경
+router.put("/editpassword", accessToken, usersController.editpassword.put);
 
 module.exports = router;

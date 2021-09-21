@@ -1,18 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Logo = styled.img`
   width: 51px;
   height: 41.91px;
-  left: 998px;
-  top: 392.32px;
   margin-top: 31.32px;
 `;
 
 export const LogOutButton = styled.button`
   width: 256px;
   height: 42px;
-  left: 833px;
-  top: 593px;
   cursor: pointer;
   background: #111418;
   box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.2);
@@ -23,8 +19,6 @@ export const LogOutButton = styled.button`
 export const CancelButton = styled.button`
   width: 256px;
   height: 42px;
-  left: 833px;
-  top: 655px;
   margin-top: 20px;
   margin-bottom: 30px;
   background: #ffffff;

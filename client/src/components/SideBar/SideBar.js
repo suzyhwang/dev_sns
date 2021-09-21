@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
-  Logo,
+  FixedContainer,
   SideBarContainer,
+  Logo,
+  SideBarTopContainer,
   SideBarHome,
   SideBarHomeIcon,
   SideBarExploreIcon,
@@ -10,13 +12,14 @@ import {
   SideBarProfile,
   SideBarTweetButton,
   SideBarUserContainer,
+  SidebarUserIdEmailBox,
   SideBarUserId,
   SideBarUserEmail,
   SideBarUserPhoto,
   ModalContainer,
-} from "./SideBar.style.js";
-import LogoutModal from "../LogoutModal/LogoutModal";
-import CreatePost from "../CreatePost/CreatePost";
+} from './SideBar.style.js';
+import LogoutModal from '../LogoutModal/LogoutModal';
+import CreatePost from '../CreatePost/CreatePost';
 
 function SideBar() {
   const [isModal, setIsModal] = useState({
@@ -27,9 +30,9 @@ function SideBar() {
   const openCloseModalHandler = (e) => {
     let newIsModal = { ...isModal };
     console.log(e.target.id);
-    if (e.target.id === "logOut") {
+    if (e.target.id === 'logOut') {
       newIsModal.logOut = !newIsModal.logOut;
-    } else if (e.target.id === "newTweet") {
+    } else if (e.target.id === 'newTweet') {
       newIsModal.newTweet = !newIsModal.newTweet;
     } else {
       if (isModal.logOut) {
@@ -44,33 +47,44 @@ function SideBar() {
   const { logOut, newTweet } = isModal;
 
   useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = logOut || newTweet ? "hidden" : "auto";
+    const body = document.querySelector('body');
+    body.style.overflow = logOut || newTweet ? 'hidden' : 'overlay';
   }, [logOut, newTweet]);
   return (
-    <SideBarContainer>
-      <Logo src={"/images/logo.svg"} alt="" />
-      <nav>
-        <SideBarHome>
-          <SideBarHomeIcon src={"/images/home.svg"} alt="" />
-          <span>Home</span>
-        </SideBarHome>
-        <SideBarExplore>
-          <SideBarExploreIcon src={"/images/explore.svg"} alt="" />
-          <span>Explore</span>
-        </SideBarExplore>
-        <SideBarProfile>
-          <SideBarProfileIcon src={"/images/sidebarprofile.svg"} alt="" />
+    <>
+      <FixedContainer>
+        <SideBarContainer>
+          <SideBarTopContainer>
+            <Logo src={'/images/logo.svg'} alt="" />
+            <nav>
+              <SideBarHome>
+                <SideBarHomeIcon src={'/images/home.svg'} alt="" />
+                <span>Home</span>
+              </SideBarHome>
+              <SideBarExplore>
+                <SideBarExploreIcon src={'/images/explore.svg'} alt="" />
+                <span>Explore</span>
+              </SideBarExplore>
+              <SideBarProfile>
+                <SideBarProfileIcon src={'/images/sidebarprofile.svg'} alt="" />
 
-          <span>Profile</span>
-        </SideBarProfile>
-      </nav>
-      <SideBarTweetButton
-        id="newTweet"
-        onClick={(e) => openCloseModalHandler(e)}
-      >
-        Post
-      </SideBarTweetButton>
+                <span>Profile</span>
+              </SideBarProfile>
+            </nav>
+            <SideBarTweetButton id="newTweet" onClick={(e) => openCloseModalHandler(e)}>
+              Post
+            </SideBarTweetButton>
+          </SideBarTopContainer>
+          <SideBarUserContainer id="logOut" onClick={(e) => openCloseModalHandler(e)}>
+            <SideBarUserPhoto />
+            <img id="logOut" src={'/images/userphoto.svg'} alt="" />
+            <SidebarUserIdEmailBox>
+              <SideBarUserId id="logOut">Sample</SideBarUserId>
+              <SideBarUserEmail id="logOut">min85472@gmail.com</SideBarUserEmail>
+            </SidebarUserIdEmailBox>
+          </SideBarUserContainer>
+        </SideBarContainer>
+      </FixedContainer>
       {isModal.logOut ? (
         <ModalContainer onClick={openCloseModalHandler}>
           <LogoutModal openCloseModalHandler={openCloseModalHandler} />
@@ -81,15 +95,7 @@ function SideBar() {
           <CreatePost openCloseModalHandler={openCloseModalHandler} />
         </ModalContainer>
       ) : null}
-      <SideBarUserContainer
-        id="logOut"
-        onClick={(e) => openCloseModalHandler(e)}
-      >
-        <SideBarUserPhoto id="logOut" src={"/images/userphoto.svg"} alt="" />
-        <SideBarUserId id="logOut">Sample</SideBarUserId>
-        <SideBarUserEmail id="logOut">min85472@gmail.com</SideBarUserEmail>
-      </SideBarUserContainer>
-    </SideBarContainer>
+    </>
   );
 }
 
