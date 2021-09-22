@@ -1,6 +1,4 @@
-
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from 'react';
 
 import {
   FixedContainer,
@@ -20,12 +18,10 @@ import {
   SideBarUserEmail,
   SideBarUserPhoto,
   ModalContainer,
-
-} from "./SideBar.style.js";
-import LogoutModal from "../LogoutModal/LogoutModal";
-import CreatePost from "../CreatePost/CreatePost";
-import { loginUser } from "../../dummy/dummy.js";
-
+} from './SideBar.style.js';
+import LogoutModal from '../LogoutModal/LogoutModal';
+import CreatePost from '../CreatePost/CreatePost';
+import { loginUser } from '../../dummy/dummy.js';
 
 function SideBar({ loginUserInfo }) {
   const [isModal, setIsModal] = useState({
@@ -57,36 +53,44 @@ function SideBar({ loginUserInfo }) {
     body.style.overflow = logOut || newTweet ? 'hidden' : 'overlay';
   }, [logOut, newTweet]);
   return (
-
-    <SideBarContainer>
-      <Logo src={"/images/logo.svg"} alt="" />
-      <nav>
-        {/* <Link to="/home"> */}
-        <SideBarHome>
-          <SideBarHomeIcon src={"/images/home.svg"} alt="" />
-          <span>Home</span>
-        </SideBarHome>
-        {/* </Link> */}
-        {/* <Link to="/explore"> */}
-        <SideBarExplore>
-          <SideBarExploreIcon src={"/images/explore.svg"} alt="" />
-          <span>Explore</span>
-        </SideBarExplore>
-        {/* </Link> */}
-        {/* <Link to="/profile"> */}
-        <SideBarProfile>
-          <SideBarProfileIcon src={"/images/sidebarprofile.svg"} alt="" />
-          <span>Profile</span>
-        </SideBarProfile>
-        {/* </Link> */}
-      </nav>
-      <SideBarTweetButton
-        id="newTweet"
-        onClick={(e) => openCloseModalHandler(e)}
-      >
-        Post
-      </SideBarTweetButton>
-
+    <FixedContainer>
+      <SideBarContainer>
+        <SideBarTopContainer>
+          <Logo src={'/images/logo.svg'} alt="" />
+          <nav>
+            {/* <Link to="/home"> */}
+            <SideBarHome>
+              <SideBarHomeIcon src={'/images/home.svg'} alt="" />
+              <span>Home</span>
+            </SideBarHome>
+            {/* </Link> */}
+            {/* <Link to="/explore"> */}
+            <SideBarExplore>
+              <SideBarExploreIcon src={'/images/explore.svg'} alt="" />
+              <span>Explore</span>
+            </SideBarExplore>
+            {/* </Link> */}
+            {/* <Link to="/profile"> */}
+            <SideBarProfile>
+              <SideBarProfileIcon src={'/images/sidebarprofile.svg'} alt="" />
+              <span>Profile</span>
+            </SideBarProfile>
+            {/* </Link> */}
+          </nav>
+          <SideBarTweetButton id="newTweet" onClick={(e) => openCloseModalHandler(e)}>
+            Post
+          </SideBarTweetButton>
+        </SideBarTopContainer>
+        <SideBarUserContainer id="logOut" onClick={(e) => openCloseModalHandler(e)}>
+          <SideBarUserPhoto>
+            <img id="logOut" src={'/images/userphoto.svg'} alt="" />
+          </SideBarUserPhoto>
+          <SidebarUserIdEmailBox>
+            <SideBarUserId id="logOut">{loginUserInfo.nickname}</SideBarUserId>
+            <SideBarUserEmail id="logOut">{loginUserInfo.email}</SideBarUserEmail>
+          </SidebarUserIdEmailBox>
+        </SideBarUserContainer>
+      </SideBarContainer>
       {isModal.logOut ? (
         <ModalContainer onClick={openCloseModalHandler}>
           <LogoutModal openCloseModalHandler={openCloseModalHandler} />
@@ -97,17 +101,7 @@ function SideBar({ loginUserInfo }) {
           <CreatePost openCloseModalHandler={openCloseModalHandler} />
         </ModalContainer>
       ) : null}
-
-      <SideBarUserContainer
-        id="logOut"
-        onClick={(e) => openCloseModalHandler(e)}
-      >
-        <SideBarUserPhoto id="logOut" src={"/images/userphoto.svg"} alt="" />
-        <SideBarUserId id="logOut">{loginUserInfo.nickname}</SideBarUserId>
-        <SideBarUserEmail id="logOut">{loginUserInfo.email}</SideBarUserEmail>
-      </SideBarUserContainer>
-    </SideBarContainer>
-
+    </FixedContainer>
   );
 }
 

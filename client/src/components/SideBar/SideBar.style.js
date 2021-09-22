@@ -1,10 +1,8 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 export const FixedContainer = styled.div`
   position: fixed;
   width: 1116px;
 `;
-
 export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,20 +13,17 @@ export const SideBarContainer = styled.div`
   padding-left: 37px;
   background: #ffffff;
 `;
-
 export const SideBarTopContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
 `;
-
 export const Logo = styled.img`
   margin-top: 39px;
   margin-bottom: 32.5px;
   margin-left: 17px;
   width: 42.6px;
 `;
-
 export const SideBarHome = styled.div`
   font-family: Roboto;
   font-style: normal;
@@ -39,14 +34,12 @@ export const SideBarHome = styled.div`
   height: 54px;
   padding-left: 20px;
   margin-bottom: 13px;
-
   span {
     display: inline-block;
     margin-top: 0 auto;
     color: #000000;
     line-height: 27px;
     height: 0px;
-
     vertical-align: middle;
   }
   :hover {
@@ -59,7 +52,6 @@ export const SideBarHome = styled.div`
     cursor: pointer;
   }
 `;
-
 export const SideBarHomeIcon = styled.img`
   position: relative;
   vertical-align: middle;
@@ -69,7 +61,6 @@ export const SideBarHomeIcon = styled.img`
   margin-right: 25.5px;
   color: #000000;
 `;
-
 export const SideBarExploreIcon = styled.img`
   width: 22.5px;
   height: 22.5px;
@@ -78,14 +69,12 @@ export const SideBarExploreIcon = styled.img`
   position: relative;
   vertical-align: middle;
 `;
-
 export const SideBarProfileIcon = styled.img`
   margin-right: 26.75px;
   position: relative;
   vertical-align: middle;
   top: 11px;
 `;
-
 export const SideBarExplore = styled.div`
   font-family: Roboto;
   font-style: normal;
@@ -96,14 +85,12 @@ export const SideBarExplore = styled.div`
   height: 54px;
   padding-left: 20px;
   margin-bottom: 13px;
-
   span {
     display: inline-block;
     margin-top: 0 auto;
     color: #000000;
     line-height: 27px;
     height: 0px;
-
     vertical-align: middle;
   }
   :hover {
@@ -116,7 +103,6 @@ export const SideBarExplore = styled.div`
     cursor: pointer;
   }
 `;
-
 export const SideBarProfile = styled.div`
   font-family: Roboto;
   font-style: normal;
@@ -127,14 +113,12 @@ export const SideBarProfile = styled.div`
   height: 54px;
   padding-left: 20px;
   margin-bottom: 13px;
-
   span {
     display: inline-block;
     margin-top: 0 auto;
     color: #000000;
     line-height: 27px;
     height: 0px;
-
     vertical-align: middle;
   }
   :hover {
@@ -147,7 +131,6 @@ export const SideBarProfile = styled.div`
     cursor: pointer;
   }
 `;
-
 export const SideBarTweetButton = styled.button`
   width: 259px;
   height: 55px;
@@ -164,13 +147,11 @@ export const SideBarTweetButton = styled.button`
   margin-top: 30px;
   cursor: pointer;
 `;
-
 export const SideBarUserContainer = styled.div`
   padding: 5px 5px 0px 20px;
   display: flex;
   height: 54px;
   margin-bottom: 20px;
-
   :hover {
     width: 259px;
     height: 54px;
@@ -182,20 +163,17 @@ export const SideBarUserContainer = styled.div`
     cursor: pointer;
   }
 `;
-
 export const SideBarUserPhoto = styled.div`
   img {
     width: 47px;
     height: 47px;
   }
 `;
-
 export const SidebarUserIdEmailBox = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 12px;
 `;
-
 export const SideBarUserId = styled.div`
   flex: 1;
   font-family: Roboto;
@@ -206,7 +184,6 @@ export const SideBarUserId = styled.div`
   color: #000000;
   padding-top: 4px;
 `;
-
 export const SideBarUserEmail = styled.div`
   flex: 1;
   font-family: Roboto;
@@ -217,7 +194,6 @@ export const SideBarUserEmail = styled.div`
   color: #6f767c;
   padding-bottom: 4px;
 `;
-
 export const ModalContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -227,6 +203,6 @@ export const ModalContainer = styled.div`
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
-  font-family: "Roboto";
+  font-family: 'Roboto';
   z-index: 999;
 `;
