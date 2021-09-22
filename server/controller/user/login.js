@@ -4,11 +4,13 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   post: async (req, res) => {
     const { email, password } = req.body;
-
+    console.log("??????", req.body);
     //이메일 찾기
     const findemail = await users.findOne({ where: { email: email } });
     // 이메일 비밀번호 확인
-    const login = await users.findOne({ where: { email: email, password: password } });
+    const login = await users.findOne({
+      where: { email: email, password: password },
+    });
 
     // 이메일이 데이터베이스에 없을 때
     if (!findemail) {
@@ -26,8 +28,12 @@ module.exports = {
       updatedAt: login.updatedAt,
     };
 
-    const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, { expiresIn: "1d" });
-    const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET, { expiresIn: "2d" });
+    const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, {
+      expiresIn: "1d",
+    });
+    const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET, {
+      expiresIn: "2d",
+    });
 
     // refreshtoken은 쿠키에
     res.cookie("refreshToken", refreshToken, {
@@ -36,6 +42,8 @@ module.exports = {
       sameSite: "none",
     });
 
-    res.status(200).json({ data: { accessToken: accessToken }, message: "로그인 완료" });
+    res
+      .status(200)
+      .json({ data: { accessToken: accessToken }, message: "로그인 완료" });
   },
 };

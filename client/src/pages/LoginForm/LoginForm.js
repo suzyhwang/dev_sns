@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import InputLogin from '../../components/InputLogin/InputLogin';
-import InputPwd from '../../components/InputPwd/InputPwd';
-import { dummy } from '../../dummy/dummy';
+
+import React, { useEffect, useState } from "react";
+import InputLogin from "../../components/InputLogin/InputLogin";
+import InputPwd from "../../components/InputPwd/InputPwd";
+import { dummy } from "../../dummy/dummy";
+import Home from "../Home/Home";
+import axios from "axios";
+
 import {
   ModalContainer,
   TwitterLoginText,
@@ -21,13 +25,16 @@ import ForgotPasswordModal from '../../components/ForgotPasswordModal/ForgotPass
 import SignupForm from '../../components/SignupForm/SignupForm';
 import axios from 'axios';
 
-function LoginForm() {
+function LoginForm({
+  isValid,
+  setIsValid,
+  handleLoginButton,
+  setInputId,
+  setInputPw,
+  inputPw,
+  inputId,
+}) {
   const [Isdisabled, setIsDisabled] = useState(true);
-  const [inputId, setInputId] = useState('');
-  const [inputPw, setInputPw] = useState('');
-  const [isValid, setIsValid] = useState(null);
-  const [isLogin, setIsLogin] = useState(false);
-  const [userInfo, setUserInfo] = useState(dummy);
 
   const [isModal, setIsModal] = useState({
     forgotPassword: false,
@@ -66,7 +73,7 @@ function LoginForm() {
       setIsDisabled(true);
     }
     if (window.event.keyCode === 13) {
-      handleLogin();
+      return handleLoginButton(e);
     }
     setIsValid(false);
   };
@@ -79,75 +86,67 @@ function LoginForm() {
     } else {
       setIsDisabled(true);
     }
-    setIsValid(false);
-  };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const dummyFilter = dummy.filter((data) => data.email === inputId && data.password === inputPw);
+    if (window.event.keyCode === 13) {
+      return handleLoginButton(e);
 
-    if (!dummyFilter.length) {
-      setIsValid(true);
-      setIsLogin(false);
-    } else {
-      setIsValid(false);
-      setIsLogin(true);
     }
-    setUserInfo(dummyFilter);
+    setIsValid(false);
   };
 
   return (
     <>
       <PullContainer>
-        {isLogin ? (
-          <TestHomePage> {userInfo[0].nickname} 님 어서옵쇼</TestHomePage>
-        ) : (
-          <Container>
-            <LogoContainer>
-              <Logo src={'/images/logo.svg'} />
-            </LogoContainer>
 
-            <TwitterLoginText>pippy 로그인</TwitterLoginText>
-            {!isValid ? (
-              ''
-            ) : (
-              <LoginWarning>
-                <div>
-                  이메일과 비밀번호를 확인하신 후 <br></br>
-                  다시 로그인 해 주세요.
-                </div>
-              </LoginWarning>
-            )}
+        <Container>
+          <LogoContainer>
+            <Logo src={"/images/logo.svg"} />
+          </LogoContainer>
 
-            <form>
-              <InputLogin inputId={inputId} handleInputId={handleInputId} />
-              <InputPwd inputPw={inputPw} handleInputPw={handleInputPw} />
-              <LoginButtonContainer>
-                <LoginButton disabled={Isdisabled} onClick={(e) => handleLoginButton(e)}>
-                  로그인
-                </LoginButton>
-              </LoginButtonContainer>
-            </form>
-            <BottomContainer>
-              <ForgotPwd
-                name={'forgotPassword'}
-                onClick={(e) => {
-                  openCloseModalHandler(e);
-                }}
+          <TwitterLoginText>pippy 로그인</TwitterLoginText>
+          {!isValid ? (
+            ""
+          ) : (
+            <LoginWarning>
+              <div>
+                이메일과 비밀번호를 확인하신 후 <br></br>
+                다시 로그인 해 주세요.
+              </div>
+            </LoginWarning>
+          )}
+          <form>
+            <InputLogin inputId={inputId} handleInputId={handleInputId} />
+            <InputPwd inputPw={inputPw} handleInputPw={handleInputPw} />
+            <LoginButtonContainer>
+              <LoginButton
+                disabled={Isdisabled}
+                onClick={(e) => handleLoginButton(e)}
               >
-                비밀번호를 잊으셨나요?
-              </ForgotPwd>
-              <Register
-                name={'signUp'}
-                onClick={(e) => {
-                  openCloseModalHandler(e);
-                }}
-              >
-                <b>pippy</b> 가입
-              </Register>
-            </BottomContainer>
-          </Container>
-        )}
+                로그인
+              </LoginButton>
+            </LoginButtonContainer>
+          </form>
+          <BottomContainer>
+            <ForgotPwd
+              name={"forgotPassword"}
+              onClick={(e) => {
+                openCloseModalHandler(e);
+              }}
+            >
+              비밀번호를 잊으셨나요?
+            </ForgotPwd>
+            <Register
+              name={"signUp"}
+              onClick={(e) => {
+                openCloseModalHandler(e);
+              }}
+            >
+              <b>pippy</b> 가입
+            </Register>
+          </BottomContainer>
+        </Container>
+
+
         {isModal.forgotPassword ? (
           <ModalContainer onClick={openCloseModalHandler}>
             <ForgotPasswordModal

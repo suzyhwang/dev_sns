@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect } from "react";
+
+
 import {
   FixedContainer,
   SideBarContainer,
@@ -17,11 +20,14 @@ import {
   SideBarUserEmail,
   SideBarUserPhoto,
   ModalContainer,
-} from './SideBar.style.js';
-import LogoutModal from '../LogoutModal/LogoutModal';
-import CreatePost from '../CreatePost/CreatePost';
 
-function SideBar() {
+} from "./SideBar.style.js";
+import LogoutModal from "../LogoutModal/LogoutModal";
+import CreatePost from "../CreatePost/CreatePost";
+import { loginUser } from "../../dummy/dummy.js";
+
+
+function SideBar({ loginUserInfo }) {
   const [isModal, setIsModal] = useState({
     logOut: false,
     newTweet: false,
@@ -51,40 +57,36 @@ function SideBar() {
     body.style.overflow = logOut || newTweet ? 'hidden' : 'overlay';
   }, [logOut, newTweet]);
   return (
-    <>
-      <FixedContainer>
-        <SideBarContainer>
-          <SideBarTopContainer>
-            <Logo src={'/images/logo.svg'} alt="" />
-            <nav>
-              <SideBarHome>
-                <SideBarHomeIcon src={'/images/home.svg'} alt="" />
-                <span>Home</span>
-              </SideBarHome>
-              <SideBarExplore>
-                <SideBarExploreIcon src={'/images/explore.svg'} alt="" />
-                <span>Explore</span>
-              </SideBarExplore>
-              <SideBarProfile>
-                <SideBarProfileIcon src={'/images/sidebarprofile.svg'} alt="" />
 
-                <span>Profile</span>
-              </SideBarProfile>
-            </nav>
-            <SideBarTweetButton id="newTweet" onClick={(e) => openCloseModalHandler(e)}>
-              Post
-            </SideBarTweetButton>
-          </SideBarTopContainer>
-          <SideBarUserContainer id="logOut" onClick={(e) => openCloseModalHandler(e)}>
-            <SideBarUserPhoto />
-            <img id="logOut" src={'/images/userphoto.svg'} alt="" />
-            <SidebarUserIdEmailBox>
-              <SideBarUserId id="logOut">Sample</SideBarUserId>
-              <SideBarUserEmail id="logOut">min85472@gmail.com</SideBarUserEmail>
-            </SidebarUserIdEmailBox>
-          </SideBarUserContainer>
-        </SideBarContainer>
-      </FixedContainer>
+    <SideBarContainer>
+      <Logo src={"/images/logo.svg"} alt="" />
+      <nav>
+        {/* <Link to="/home"> */}
+        <SideBarHome>
+          <SideBarHomeIcon src={"/images/home.svg"} alt="" />
+          <span>Home</span>
+        </SideBarHome>
+        {/* </Link> */}
+        {/* <Link to="/explore"> */}
+        <SideBarExplore>
+          <SideBarExploreIcon src={"/images/explore.svg"} alt="" />
+          <span>Explore</span>
+        </SideBarExplore>
+        {/* </Link> */}
+        {/* <Link to="/profile"> */}
+        <SideBarProfile>
+          <SideBarProfileIcon src={"/images/sidebarprofile.svg"} alt="" />
+          <span>Profile</span>
+        </SideBarProfile>
+        {/* </Link> */}
+      </nav>
+      <SideBarTweetButton
+        id="newTweet"
+        onClick={(e) => openCloseModalHandler(e)}
+      >
+        Post
+      </SideBarTweetButton>
+
       {isModal.logOut ? (
         <ModalContainer onClick={openCloseModalHandler}>
           <LogoutModal openCloseModalHandler={openCloseModalHandler} />
@@ -95,7 +97,17 @@ function SideBar() {
           <CreatePost openCloseModalHandler={openCloseModalHandler} />
         </ModalContainer>
       ) : null}
-    </>
+
+      <SideBarUserContainer
+        id="logOut"
+        onClick={(e) => openCloseModalHandler(e)}
+      >
+        <SideBarUserPhoto id="logOut" src={"/images/userphoto.svg"} alt="" />
+        <SideBarUserId id="logOut">{loginUserInfo.nickname}</SideBarUserId>
+        <SideBarUserEmail id="logOut">{loginUserInfo.email}</SideBarUserEmail>
+      </SideBarUserContainer>
+    </SideBarContainer>
+
   );
 }
 
