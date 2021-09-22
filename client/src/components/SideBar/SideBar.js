@@ -1,8 +1,12 @@
+
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+
 import {
-  Logo,
+  FixedContainer,
   SideBarContainer,
+  Logo,
+  SideBarTopContainer,
   SideBarHome,
   SideBarHomeIcon,
   SideBarExploreIcon,
@@ -11,14 +15,17 @@ import {
   SideBarProfile,
   SideBarTweetButton,
   SideBarUserContainer,
+  SidebarUserIdEmailBox,
   SideBarUserId,
   SideBarUserEmail,
   SideBarUserPhoto,
   ModalContainer,
+
 } from "./SideBar.style.js";
 import LogoutModal from "../LogoutModal/LogoutModal";
 import CreatePost from "../CreatePost/CreatePost";
 import { loginUser } from "../../dummy/dummy.js";
+
 
 function SideBar({ loginUserInfo }) {
   const [isModal, setIsModal] = useState({
@@ -29,9 +36,9 @@ function SideBar({ loginUserInfo }) {
   const openCloseModalHandler = (e) => {
     let newIsModal = { ...isModal };
     console.log(e.target.id);
-    if (e.target.id === "logOut") {
+    if (e.target.id === 'logOut') {
       newIsModal.logOut = !newIsModal.logOut;
-    } else if (e.target.id === "newTweet") {
+    } else if (e.target.id === 'newTweet') {
       newIsModal.newTweet = !newIsModal.newTweet;
     } else {
       if (isModal.logOut) {
@@ -46,10 +53,11 @@ function SideBar({ loginUserInfo }) {
   const { logOut, newTweet } = isModal;
 
   useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = logOut || newTweet ? "hidden" : "auto";
+    const body = document.querySelector('body');
+    body.style.overflow = logOut || newTweet ? 'hidden' : 'overlay';
   }, [logOut, newTweet]);
   return (
+
     <SideBarContainer>
       <Logo src={"/images/logo.svg"} alt="" />
       <nav>
@@ -78,6 +86,7 @@ function SideBar({ loginUserInfo }) {
       >
         Post
       </SideBarTweetButton>
+
       {isModal.logOut ? (
         <ModalContainer onClick={openCloseModalHandler}>
           <LogoutModal openCloseModalHandler={openCloseModalHandler} />
@@ -88,6 +97,7 @@ function SideBar({ loginUserInfo }) {
           <CreatePost openCloseModalHandler={openCloseModalHandler} />
         </ModalContainer>
       ) : null}
+
       <SideBarUserContainer
         id="logOut"
         onClick={(e) => openCloseModalHandler(e)}
@@ -97,6 +107,7 @@ function SideBar({ loginUserInfo }) {
         <SideBarUserEmail id="logOut">{loginUserInfo.email}</SideBarUserEmail>
       </SideBarUserContainer>
     </SideBarContainer>
+
   );
 }
 

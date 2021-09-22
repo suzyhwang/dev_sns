@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from "react";
 import InputLogin from "../../components/InputLogin/InputLogin";
 import InputPwd from "../../components/InputPwd/InputPwd";
 import { dummy } from "../../dummy/dummy";
 import Home from "../Home/Home";
 import axios from "axios";
+
 import {
   ModalContainer,
   TwitterLoginText,
@@ -18,9 +20,10 @@ import {
   BottomContainer,
   PullContainer,
   TestHomePage,
-} from "../LoginForm/LoginForm.style";
-import ForgotPasswordModal from "../../components/ForgotPasswordModal/ForgotPasswordModal";
-import SignupForm from "../../components/SignupForm/SignupForm";
+} from '../LoginForm/LoginForm.style';
+import ForgotPasswordModal from '../../components/ForgotPasswordModal/ForgotPasswordModal';
+import SignupForm from '../../components/SignupForm/SignupForm';
+import axios from 'axios';
 
 function LoginForm({
   isValid,
@@ -41,9 +44,9 @@ function LoginForm({
   const openCloseModalHandler = (e) => {
     let newIsModal = { ...isModal };
 
-    if (e.target.name === "forgotPassword") {
+    if (e.target.name === 'forgotPassword') {
       newIsModal.forgotPassword = !newIsModal.forgotPassword;
-    } else if (e.target.name === "signUp") {
+    } else if (e.target.name === 'signUp') {
       newIsModal.signUp = !newIsModal.signUp;
     } else {
       if (isModal.forgotPassword) {
@@ -58,8 +61,8 @@ function LoginForm({
   const { forgotPassword, signUp } = isModal;
 
   useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = forgotPassword || signUp ? "hidden" : "auto";
+    const body = document.querySelector('body');
+    body.style.overflow = forgotPassword || signUp ? 'hidden' : 'auto';
   }, [forgotPassword, signUp]);
 
   const handleInputId = (e) => {
@@ -83,8 +86,10 @@ function LoginForm({
     } else {
       setIsDisabled(true);
     }
+
     if (window.event.keyCode === 13) {
       return handleLoginButton(e);
+
     }
     setIsValid(false);
   };
@@ -92,6 +97,7 @@ function LoginForm({
   return (
     <>
       <PullContainer>
+
         <Container>
           <LogoContainer>
             <Logo src={"/images/logo.svg"} />
@@ -140,6 +146,7 @@ function LoginForm({
           </BottomContainer>
         </Container>
 
+
         {isModal.forgotPassword ? (
           <ModalContainer onClick={openCloseModalHandler}>
             <ForgotPasswordModal
@@ -149,9 +156,7 @@ function LoginForm({
         ) : null}
         {isModal.signUp ? (
           <ModalContainer onClick={openCloseModalHandler}>
-            <SignupForm
-              openCloseModalHandler={openCloseModalHandler}
-            ></SignupForm>
+            <SignupForm openCloseModalHandler={openCloseModalHandler}></SignupForm>
           </ModalContainer>
         ) : null}
       </PullContainer>

@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-import {
-  ThreadContainer,
-  TopContainer,
-  BackArrow,
-  CommentContainer,
-} from "../Thread/Thread.style";
-import Post from "../../components/Post/Post";
-import Comment from "../../components/Comment/Comment";
-import {
-  posts,
-  likes,
-  dummy,
-  comments,
-  postikes,
-  loginUser,
-} from "../../dummy/dummy";
+import React, { useState } from 'react';
+import { ThreadContainer, TopContainer, BackArrow, CommentContainer } from '../Thread/Thread.style';
+import Post from '../../components/Post/Post';
+import Comment from '../../components/Comment/Comment';
+import { posts, likes, dummy, comments, postikes, loginUser } from '../../dummy/dummy';
 import {
   HomePost,
   UserPhoto,
   HomePostContainer,
   ButtonContainer,
   HomePostButton,
-} from "../Home/Home.style";
+} from '../Home/Home.style';
 function Thread() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [Isdisabled, setIsDisabled] = useState(true);
 
   const countStr = (e) => {
@@ -46,25 +34,13 @@ function Thread() {
     let minute = date.getMinutes();
     let second = date.getSeconds();
 
-    month = month >= 10 ? month : "0" + month;
-    day = day >= 10 ? day : "0" + day;
-    hour = hour >= 10 ? hour : "0" + hour;
-    minute = minute >= 10 ? minute : "0" + minute;
-    second = second >= 10 ? second : "0" + second;
+    month = month >= 10 ? month : '0' + month;
+    day = day >= 10 ? day : '0' + day;
+    hour = hour >= 10 ? hour : '0' + hour;
+    minute = minute >= 10 ? minute : '0' + minute;
+    second = second >= 10 ? second : '0' + second;
 
-    return (
-      date.getFullYear() +
-      "-" +
-      month +
-      "-" +
-      day +
-      " " +
-      hour +
-      ":" +
-      minute +
-      ":" +
-      second
-    );
+    return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
   }
 
   let today = new Date();
@@ -73,12 +49,12 @@ function Thread() {
     comments.unshift({
       id: posts.length + 1,
       postId: 0,
-      nickname: "InyongJeong",
-      email: "inyong@gmail.com",
+      nickname: 'InyongJeong',
+      email: 'inyong@gmail.com',
       created_at: dateFormat(today),
       comment: text,
     });
-    setText("");
+    setText('');
     setIsDisabled(true);
   };
 
@@ -86,7 +62,7 @@ function Thread() {
     <ThreadContainer>
       <TopContainer>
         <div>
-          <BackArrow src={"/images/backarrow.svg"} />
+          <BackArrow src={'/images/backarrow.svg'} />
           <span>Thread</span>
         </div>
       </TopContainer>
@@ -95,7 +71,7 @@ function Thread() {
       </div>
       <CommentContainer>
         <HomePost>
-          <UserPhoto src={"/images/userphoto.svg"} />
+          <UserPhoto src={'/images/userphoto.svg'} />
           <HomePostContainer>
             <textarea
               value={text}
@@ -113,9 +89,9 @@ function Thread() {
         </ButtonContainer>
       </CommentContainer>
       <div>
-        {/* {comments.map((comment) => (
-            <Comment comment={comment} key={comment.id} />
-          ))} */}
+        {comments.map((comment) => (
+          <Comment comment={comment} key={comment.id} />
+        ))}
       </div>
     </ThreadContainer>
   );

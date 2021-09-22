@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TwitterLoginText = styled.h3`
   width: 175px;
@@ -165,7 +165,7 @@ export const ModalContainer = styled.div`
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
-  font-family: "Roboto";
+  font-family: 'Roboto';
   z-index: 999;
 `;
 
@@ -175,6 +175,6 @@ export const TestHomePage = styled.div`
   background-color: white;
   color: red;
   font-weight: bold;
-  transition: "all 0.3s";
+  transition: 'all 0.3s';
   font-size: 150px;
 `;

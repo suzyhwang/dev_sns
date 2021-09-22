@@ -1,25 +1,32 @@
 import styled from "styled-components";
 
-export const Logo = styled.img`
-  margin-top: 39px;
-  margin-bottom: 32.5px;
-  margin-left: 17px;
-  width: 42.6px;
-  height: 35px;
-  left: 439px;
-  top: 39px;
+export const FixedContainer = styled.div`
+  position: fixed;
+  width: 1116px;
 `;
 
 export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  align-content: space-between;
   width: 324px;
-  height: 912px;
-  left: 402px;
-  top: 0px;
+  height: 100vh;
   padding-left: 37px;
   background: #ffffff;
+`;
+
+export const SideBarTopContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Logo = styled.img`
+  margin-top: 39px;
+  margin-bottom: 32.5px;
+  margin-left: 17px;
+  width: 42.6px;
 `;
 
 export const SideBarHome = styled.div`
@@ -29,10 +36,7 @@ export const SideBarHome = styled.div`
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.02em;
-  width: 324px;
   height: 54px;
-  left: 300px;
-  top: 90px;
   padding-left: 20px;
   margin-bottom: 13px;
 
@@ -89,12 +93,8 @@ export const SideBarExplore = styled.div`
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.02em;
-  width: 324px;
   height: 54px;
-  left: 300px;
-  top: 90px;
   padding-left: 20px;
-  padding-right: 11px;
   margin-bottom: 13px;
 
   span {
@@ -124,10 +124,7 @@ export const SideBarProfile = styled.div`
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.02em;
-  width: 324px;
   height: 54px;
-  left: 300px;
-  top: 90px;
   padding-left: 20px;
   margin-bottom: 13px;
 
@@ -154,17 +151,13 @@ export const SideBarProfile = styled.div`
 export const SideBarTweetButton = styled.button`
   width: 259px;
   height: 55px;
-  left: 426px;
-  top: 305px;
   font-family: Roboto;
-  font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 23px;
   letter-spacing: -0.03em;
   border: none;
   color: #ffffff;
-  margin-left: 0px;
   background: #55a3ef;
   box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.2);
   border-radius: 42px;
@@ -174,12 +167,10 @@ export const SideBarTweetButton = styled.button`
 
 export const SideBarUserContainer = styled.div`
   padding: 5px 5px 0px 20px;
-  position: sticky;
   display: flex;
-  flex-direction: row;
-  width: 259px;
   height: 54px;
-  top: 93vh;
+  margin-bottom: 20px;
+
   :hover {
     width: 259px;
     height: 54px;
@@ -192,49 +183,41 @@ export const SideBarUserContainer = styled.div`
   }
 `;
 
-export const SideBarUserPhoto = styled.img`
-  align-items: stretch;
-  flex-basis: auto;
-  position: absolute;
-  width: 47px;
-  height: 47px;
+export const SideBarUserPhoto = styled.div`
+  img {
+    width: 47px;
+    height: 47px;
+  }
 `;
 
-export const SideBarUserId = styled.span`
-  position: relative;
-  display: inline;
-  width: 53px;
-  height: 19px;
-  left: 65px;
-  top: 5px;
+export const SidebarUserIdEmailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+`;
+
+export const SideBarUserId = styled.div`
+  flex: 1;
   font-family: Roboto;
-  font-style: normal;
+  display: flex;
+  align-items: center;
   font-weight: bold;
   font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
-
-  letter-spacing: -0.02em;
-
   color: #000000;
+  padding-top: 4px;
 `;
 
-export const SideBarUserEmail = styled.span`
-  display: inline;
-  width: 163px;
-  height: 19px;
-  top: 25px;
-  left: 13px;
-  position: relative;
+export const SideBarUserEmail = styled.div`
+  flex: 1;
   font-family: Roboto;
-  font-style: normal;
+  display: flex;
+  align-items: center;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
-
   color: #6f767c;
+  padding-bottom: 4px;
 `;
+
 export const ModalContainer = styled.div`
   display: flex;
   justify-content: center;

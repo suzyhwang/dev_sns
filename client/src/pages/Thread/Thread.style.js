@@ -8,8 +8,8 @@ export const ThreadContainer = styled.div`
   border-right: 1px solid #f0f3f4;
   border-left: 1px solid #f0f3f4;
   background: #ffffff;
-  margin-left: 40vh;
   z-index: 1;
+  margin-left: 324px;
 `;
 
 export const TopContainer = styled.div`
@@ -39,5 +39,4 @@ export const BackArrow = styled.img`
 
 export const CommentContainer = styled.div`
   width: 791px;
-  height: 152px;
 `;

@@ -8,6 +8,7 @@ export const HomeContainer = styled.div`
   border-left: 1px solid #f0f3f4;
   background: #ffffff;
   z-index: 1;
+  margin-left: 324px;
 `;
 
 export const TopContainer = styled.div`
@@ -32,24 +33,15 @@ export const HomePost = styled.div`
   border-top: 1px solid #f0f3f4;
 
   height: 200px;
-  left: 726px;
-  top: 85px;
 `;
 
 export const UserPhoto = styled.img`
-  align-items: stretch;
-  left: 10px;
-  right: 10px;
   width: 47px;
   height: 47px;
   padding: 13px 13px 0px 26px;
 `;
 
 export const HomePostContainer = styled.div`
-  height: 160px;
-  left: 812px;
-  top: 108px;
-
   textarea {
     font-family: "Roboto";
     max-height: 720px;
@@ -76,12 +68,13 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
   border-bottom: 1px solid #f0f3f4;
 `;
+
 export const HomePostButton = styled.button`
-  position: absolute;
+  position: relative;
   margin-right: 15px;
+  margin-bottom: 15px;
   width: 77px;
   height: 40px;
-  top: 220px;
 
   font-family: Roboto;
   font-style: normal;
@@ -136,4 +129,9 @@ export const LineBetween = styled.div`
   height: 11px;
   background: #f9fafb;
   transform: matrix(1, 0, 0, -1, 0, 0);
+`;
+
+export const PostArea = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

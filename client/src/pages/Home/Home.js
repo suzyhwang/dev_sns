@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from 'react';
+import { posts } from '../../dummy/dummy';
+import Post from '../../components/Post/Post';
 import {
   HomeContainer,
   TopContainer,
@@ -10,9 +11,10 @@ import {
   UserPhoto,
   ButtonContainer,
   LineBetween,
-} from "../Home/Home.style";
+  PostArea,
+} from '../Home/Home.style';
 function Home() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [Isdisabled, setIsDisabled] = useState(true);
 
   const countStr = (e) => {
@@ -35,7 +37,7 @@ function Home() {
           <div>Home</div>
         </TopContainer>
         <HomePost>
-          <UserPhoto src={"/images/userphoto.svg"} />
+          <UserPhoto src={'/images/userphoto.svg'} />
           <HomePostContainer>
             <textarea
               value={text}
@@ -50,12 +52,18 @@ function Home() {
           <HomePostButton disabled={Isdisabled}>Post</HomePostButton>
         </ButtonContainer>
         <LineBetween />
-        <BottomContainer>
-          <div>Welcome to Pippy!</div>
-          <span>
-            This is the best place to see what’s happening in your world.
-          </span>
-        </BottomContainer>
+        {posts.length > 0 ? (
+          <PostArea>
+            {posts.map((post) => (
+              <Post post={post}></Post>
+            ))}
+          </PostArea>
+        ) : (
+          <BottomContainer>
+            <div>Welcome to Pippy!</div>
+            <span>This is the best place to see what’s happening in your world.</span>
+          </BottomContainer>
+        )}
       </HomeContainer>
     </>
   );
