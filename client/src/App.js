@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import Home from "./pages/Home/Home";
 import SideBar from "./components/SideBar/SideBar";
@@ -27,8 +26,7 @@ function App() {
       },
     })
       .then((res) => {
-        setIsLogin(true);
-        setToken(res.data.data.accessToken);
+        testHandler(res);
       })
       .catch((err) => {
         console.log(err);
@@ -36,8 +34,14 @@ function App() {
       });
   };
 
-  useEffect(async () => {
-    await axios({
+  const testHandler = (res) => {
+    setIsLogin(true);
+    setToken(res.data.data.accessToken);
+    test(res.data.data.accessToken);
+  };
+
+  const test = (token) => {
+    axios({
       method: "get",
       url: "http://localhost:4000/user/userinfo",
       headers: {
@@ -51,7 +55,7 @@ function App() {
       setLoginUserInfo({ id, nickname, email });
       setIsLoading(false);
     });
-  }, [token]);
+  };
 
   return (
     <Maincontainer>
