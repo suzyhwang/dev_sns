@@ -1,10 +1,9 @@
-
-import React, { useEffect, useState } from "react";
-import InputLogin from "../../components/InputLogin/InputLogin";
-import InputPwd from "../../components/InputPwd/InputPwd";
-import { dummy } from "../../dummy/dummy";
-import Home from "../Home/Home";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import InputLogin from '../../components/InputLogin/InputLogin';
+import InputPwd from '../../components/InputPwd/InputPwd';
+import { dummy } from '../../dummy/dummy';
+import Home from '../Home/Home';
+import axios from 'axios';
 
 import {
   ModalContainer,
@@ -23,7 +22,6 @@ import {
 } from '../LoginForm/LoginForm.style';
 import ForgotPasswordModal from '../../components/ForgotPasswordModal/ForgotPasswordModal';
 import SignupForm from '../../components/SignupForm/SignupForm';
-import axios from 'axios';
 
 function LoginForm({
   isValid,
@@ -89,7 +87,6 @@ function LoginForm({
 
     if (window.event.keyCode === 13) {
       return handleLoginButton(e);
-
     }
     setIsValid(false);
   };
@@ -97,15 +94,14 @@ function LoginForm({
   return (
     <>
       <PullContainer>
-
         <Container>
           <LogoContainer>
-            <Logo src={"/images/logo.svg"} />
+            <Logo src={'/images/logo.svg'} />
           </LogoContainer>
 
           <TwitterLoginText>pippy 로그인</TwitterLoginText>
           {!isValid ? (
-            ""
+            ''
           ) : (
             <LoginWarning>
               <div>
@@ -118,17 +114,14 @@ function LoginForm({
             <InputLogin inputId={inputId} handleInputId={handleInputId} />
             <InputPwd inputPw={inputPw} handleInputPw={handleInputPw} />
             <LoginButtonContainer>
-              <LoginButton
-                disabled={Isdisabled}
-                onClick={(e) => handleLoginButton(e)}
-              >
+              <LoginButton disabled={Isdisabled} onClick={(e) => handleLoginButton(e)}>
                 로그인
               </LoginButton>
             </LoginButtonContainer>
           </form>
           <BottomContainer>
             <ForgotPwd
-              name={"forgotPassword"}
+              name={'forgotPassword'}
               onClick={(e) => {
                 openCloseModalHandler(e);
               }}
@@ -136,7 +129,7 @@ function LoginForm({
               비밀번호를 잊으셨나요?
             </ForgotPwd>
             <Register
-              name={"signUp"}
+              name={'signUp'}
               onClick={(e) => {
                 openCloseModalHandler(e);
               }}
@@ -145,7 +138,6 @@ function LoginForm({
             </Register>
           </BottomContainer>
         </Container>
-
 
         {isModal.forgotPassword ? (
           <ModalContainer onClick={openCloseModalHandler}>
