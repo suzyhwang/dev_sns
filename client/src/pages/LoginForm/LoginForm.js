@@ -22,13 +22,16 @@ import {
 import ForgotPasswordModal from "../../components/ForgotPasswordModal/ForgotPasswordModal";
 import SignupForm from "../../components/SignupForm/SignupForm";
 
-function LoginForm({ loginHandler }) {
+function LoginForm({
+  isValid,
+  setIsValid,
+  handleLoginButton,
+  setInputId,
+  setInputPw,
+  inputPw,
+  inputId,
+}) {
   const [Isdisabled, setIsDisabled] = useState(true);
-  const [inputId, setInputId] = useState("");
-  const [isValid, setIsValid] = useState(null);
-  const [isLogin, setIsLogin] = useState(false);
-  const [inputPw, setInputPw] = useState("");
-  const [userInfo, setUserInfo] = useState(dummy);
 
   const [isModal, setIsModal] = useState({
     forgotPassword: false,
@@ -84,25 +87,6 @@ function LoginForm({ loginHandler }) {
       return handleLoginButton(e);
     }
     setIsValid(false);
-  };
-
-  const handleLoginButton = (e) => {
-    e.preventDefault();
-    axios({
-      method: "post",
-      url: "http://localhost:4000/user/login",
-      data: {
-        email: inputId,
-        password: inputPw,
-      },
-    })
-      .then((res) => {
-        loginHandler(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsValid(true);
-      });
   };
 
   return (

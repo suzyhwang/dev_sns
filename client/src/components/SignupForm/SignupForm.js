@@ -43,27 +43,6 @@ const SignupForm = ({ openCloseModalHandler }) => {
   const [year, setYear] = useState("");
   const [day, setDay] = useState("");
 
-  axios({
-    method: "post",
-    url: "http://localhost:4000/user/signup",
-    data: {
-      nickname: nickname,
-      email: email,
-      password: password,
-      birthDay: year + month + day,
-    },
-  })
-    .then((res) => {
-      if (res.message) {
-        console.log(res.message);
-        isRegistered(true);
-      }
-      if (res.data.email === email) {
-        isRegistered(false);
-      }
-    })
-    .catch((err) => {});
-
   const isRegistered = (value, key) => {
     return dummy.filter((el) => {
       return el[key] === value;

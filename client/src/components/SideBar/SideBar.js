@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Logo,
   SideBarContainer,
@@ -17,8 +18,9 @@ import {
 } from "./SideBar.style.js";
 import LogoutModal from "../LogoutModal/LogoutModal";
 import CreatePost from "../CreatePost/CreatePost";
+import { loginUser } from "../../dummy/dummy.js";
 
-function SideBar() {
+function SideBar({ loginUserInfo }) {
   const [isModal, setIsModal] = useState({
     logOut: false,
     newTweet: false,
@@ -51,19 +53,24 @@ function SideBar() {
     <SideBarContainer>
       <Logo src={"/images/logo.svg"} alt="" />
       <nav>
+        {/* <Link to="/home"> */}
         <SideBarHome>
           <SideBarHomeIcon src={"/images/home.svg"} alt="" />
           <span>Home</span>
         </SideBarHome>
+        {/* </Link> */}
+        {/* <Link to="/explore"> */}
         <SideBarExplore>
           <SideBarExploreIcon src={"/images/explore.svg"} alt="" />
           <span>Explore</span>
         </SideBarExplore>
+        {/* </Link> */}
+        {/* <Link to="/profile"> */}
         <SideBarProfile>
           <SideBarProfileIcon src={"/images/sidebarprofile.svg"} alt="" />
-
           <span>Profile</span>
         </SideBarProfile>
+        {/* </Link> */}
       </nav>
       <SideBarTweetButton
         id="newTweet"
@@ -86,8 +93,8 @@ function SideBar() {
         onClick={(e) => openCloseModalHandler(e)}
       >
         <SideBarUserPhoto id="logOut" src={"/images/userphoto.svg"} alt="" />
-        <SideBarUserId id="logOut">Sample</SideBarUserId>
-        <SideBarUserEmail id="logOut">min85472@gmail.com</SideBarUserEmail>
+        <SideBarUserId id="logOut">{loginUserInfo.nickname}</SideBarUserId>
+        <SideBarUserEmail id="logOut">{loginUserInfo.email}</SideBarUserEmail>
       </SideBarUserContainer>
     </SideBarContainer>
   );
